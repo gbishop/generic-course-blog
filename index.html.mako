@@ -4,7 +4,7 @@
 <%inherit file="_templates/site.mako" />
 <h1>Welcome</h1>
 <p>
-Welcome to the web page for ...
+Welcome to the web page for Comp 116 Introduction to Scientific Programming for Spring of 2011. 
 </p>
 
 <h3>Latest posts</h3>
