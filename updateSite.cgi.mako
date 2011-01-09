@@ -1,0 +1,30 @@
+#!/home/gb/bin/python2.6
+
+# starts running in the directory being served
+
+import cgi
+import cgitb
+import os
+import json
+import sys
+from subprocess import check_call
+from shutil import copytree
+
+cgitb.enable()#display=0, logdir='/home/gb/tmp')
+
+print "Content-Type: text/html"     # HTML is following
+print                               # blank line, end of headers
+
+#form = cgi.FieldStorage()
+#payload = json.loads(form['payload'].value.decode('utf-8'))
+
+#if payload['repository']['owner']['name'] != 'gbishop':
+#    sys.exit(0)
+
+os.chdir("${bf.config.site.git}")
+check_call(['/home/gb/bin/git', 'pull', 'origin', 'master'])
+check_call(['/home/gb/bin/blogofile', 'build'])
+check_call(['/home/gb/bin/python2.6', 'buildIndex.py'])
+copytree('_site', "${bf.config.site.dir}")
+
+echo 'ok'
