@@ -22,7 +22,7 @@ print                               # blank line, end of headers
 #    sys.exit(0)
 
 os.chdir("${bf.config.site.git}")
-check_call(['/home/gb/bin/git', 'pull', 'origin', 'master'])
+check_call(['/home/gb/bin/git', 'pull', 'origin', '${bf.config.site.branch}'])
 check_call(['/home/gb/bin/blogofile', 'build'])
 check_call(['/home/gb/bin/python2.6', 'buildIndex.py'])
 copytree('_site', "${bf.config.site.dir}")
