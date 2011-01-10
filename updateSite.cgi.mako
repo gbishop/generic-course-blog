@@ -15,6 +15,8 @@ cgitb.enable()#display=0, logdir='/home/gb/tmp')
 print "Content-Type: text/html"     # HTML is following
 print                               # blank line, end of headers
 
+sys.stdout.flush()
+
 #form = cgi.FieldStorage()
 #payload = json.loads(form['payload'].value.decode('utf-8'))
 
