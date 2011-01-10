@@ -27,4 +27,4 @@ check_call(['/home/gb/bin/blogofile', 'build'])
 check_call(['/home/gb/bin/python2.6', 'buildIndex.py'])
 copytree('_site', "${bf.config.site.dir}")
 
-echo 'ok'
+print 'ok'
