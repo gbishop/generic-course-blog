@@ -26,7 +26,7 @@ else:
 # eliminate non-word junk
 q = re.sub(r'\W+', ' ', q)
 
-indexDir = '/home/gb/Web/gb/indexdir'
+indexDir = 'indexdir'
 
 ix = index.open_dir(indexDir)
 
