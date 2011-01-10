@@ -2,6 +2,7 @@
  current_ = 'help' 
 %>
 <%inherit file="_templates/site.mako" />
+<h1>Getting Help</h1>
 <p> 
  We are here to help! We want everyone in this class to succeed. You may need some help outside of class. Here are some resources that are available to you.
 </p> 
