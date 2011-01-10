@@ -1,5 +1,5 @@
 <%!
- current_ = 'welcome' 
+ current_ = 'home' 
 %>
 <%inherit file="_templates/site.mako" />
 <h1>Welcome</h1>
