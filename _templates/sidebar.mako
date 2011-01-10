@@ -29,7 +29,8 @@
           </aside>
           <aside class="widget">
             <h3>Contact</h3>
-            <p>Gary Bishop <a href="mailto:gb@cs.unc.edu">gb@cs.unc.edu</a><br/>
+            <p><a href="http://www.cs.unc.edu/~gb/">Gary Bishop</a>
+             <a href="mailto:gb@cs.unc.edu">gb@cs.unc.edu</a><br/>
             255 Sitterson Hall CB 3175<br/>
             919-962-1886<br/>
             <br/>
