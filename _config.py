@@ -55,7 +55,7 @@ blog.timezone = "US/Eastern"
 blog.post_excerpts.enabled = True
 blog.post_excerpts.word_length = 25
 blog.posts_per_page = 10
-blog.auto_permalink.path = site.root + blog.path + "/:year/:month/:day/:title"
+blog.auto_permalink.path = "/" + blog.path + "/:year/:month/:day/:title"
 
 ### colors
 class Bag(object):
