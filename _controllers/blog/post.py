@@ -157,6 +157,8 @@ class Post(object):
              else:
                 # otherwise return the first paragraph
                 s = s.find('p')
+                if not s:
+                    return ''
                 
              return s.prettify().decode('utf-8')
              
