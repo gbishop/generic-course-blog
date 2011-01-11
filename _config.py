@@ -22,7 +22,7 @@ site.url = site.host + site.root
 
 print site.url
 
-site.git = '/home/gb/Web/classes'
+site.git = '/home/gb/Web/' + site.folder
 site.branch = '116'
 site.dir = '/home/gb/public_html/' + site.folder
 
