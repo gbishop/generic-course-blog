@@ -8,7 +8,7 @@ import os
 import json
 import sys
 from subprocess import check_call
-from shutil import copytree
+from shutil import copytree, rmtree
 
 cgitb.enable()#display=0, logdir='/home/gb/tmp')
 
@@ -30,5 +30,5 @@ for f in [ 'updateSite.cgi', 'searchIndex.cgi' ]:
     os.chmod(os.path.join('_site', f), 0555)
 check_call(['/home/gb/bin/python2.6', 'buildIndex.py'])
 copytree('_site', "${bf.config.site.dir}")
-
+rmtree("${bf.config.site.dir}", True)
 print 'ok'
