@@ -29,6 +29,6 @@ check_call(['/home/gb/bin/blogofile', 'build'])
 for f in [ 'updateSite.cgi', 'searchIndex.cgi' ]:
     os.chmod(os.path.join('_site', f), 0555)
 check_call(['/home/gb/bin/python2.6', 'buildIndex.py'])
-copytree('_site', "${bf.config.site.dir}")
 rmtree("${bf.config.site.dir}", True)
+copytree('_site', "${bf.config.site.dir}")
 print 'ok'
