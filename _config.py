@@ -14,7 +14,7 @@
 #  If you're hosting a blogofile powered site as a subdirectory of a larger
 #  non-blogofile site, then you would set the site_url to the full URL
 #  including that subdirectory: "http://www.yoursite.com/path/to/blogofile-dir"
-site.folder = 'generic/'
+site.folder = 'CompXXX/'
 
 site.host = "http://www.cs.unc.edu"
 site.root = "/~gb/" + site.folder
@@ -55,7 +55,7 @@ blog.timezone = "US/Eastern"
 blog.post_excerpts.enabled = True
 blog.post_excerpts.word_length = 25
 blog.posts_per_page = 10
-blog.auto_permalink.path = site.root + blog.path + "/:year/:month/:day/:title"
+blog.auto_permalink.path = "/" + blog.path + "/:year/:month/:day/:title"
 
 ### colors
 class Bag(object):
