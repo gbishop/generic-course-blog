@@ -28,14 +28,17 @@
             </form>
           </aside>
           <aside class="widget">
-            <h3>Contact</h3>
+            <h3>Instructors</h3>
+            <p><a href="http://www.cs.unc.edu/~brooks/">Frederick P. Brooks, Jr.</a>
+             <a href="mailto:brooks@cs.unc.edu">brooks@cs.unc.edu</a><br/>
+            214 Sitterson Hall CB 3175<br/>
+            919-962-1931</p>
+            
             <p><a href="http://www.cs.unc.edu/~gb/">Gary Bishop</a>
              <a href="mailto:gb@cs.unc.edu">gb@cs.unc.edu</a><br/>
             255 Sitterson Hall CB 3175<br/>
-            919-962-1886<br/>
-            <br/>
-            Teaching Assistant: <br/>
-            <br/>
+            919-962-1886</p>
+            <p>
             Feed: <a class="feed" href="${bf.util.site_path_helper(bf.config.blog.path,'feed/')}">Posts</a>
 % if bf.config.blog.disqus.enabled:
               and <a class="feed" href="http://${bf.config.blog.disqus.name}.disqus.com/latest.rss">Comments</a>

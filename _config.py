@@ -14,7 +14,7 @@
 #  If you're hosting a blogofile powered site as a subdirectory of a larger
 #  non-blogofile site, then you would set the site_url to the full URL
 #  including that subdirectory: "http://www.yoursite.com/path/to/blogofile-dir"
-site.folder = 'CompXXX/'
+site.folder = 'Comp915Spring2011/'
 
 site.host = "http://www.cs.unc.edu"
 site.root = "/~gb/" + site.folder
@@ -23,7 +23,7 @@ site.url = site.host + site.root
 print site.url
 
 site.git = '/home/gb/Web/' + site.folder
-site.branch = '116'
+site.branch = '915'
 site.dir = '/home/gb/public_html/' + site.folder
 
 #### Blog Settings ####
@@ -43,11 +43,11 @@ blog.path = "blog"
 
 ## blog_name -- Your Blog's name.
 # This is used repeatedly in default blog templates
-blog.name = "Course number"
+blog.name = "Comp 915"
 
 ## blog_description -- A short one line description of the blog
 # used in the RSS/Atom feeds.
-blog.description = "Course name"
+blog.description = "Technical Communication in Computer Science"
 
 ## blog_timezone -- the timezone that you normally write your blog posts from
 blog.timezone = "US/Eastern"
