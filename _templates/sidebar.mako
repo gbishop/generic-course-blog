@@ -29,12 +29,12 @@
           </aside>
           <aside class="widget">
             <h3>Instructors</h3>
-            <p><a href="http://www.cs.unc.edu/~brooks/">Frederick P. Brooks, Jr.</a>
+            <p><a href="http://www.cs.unc.edu/~brooks/">Frederick P. Brooks, Jr.</a><br/>
              <a href="mailto:brooks@cs.unc.edu">brooks@cs.unc.edu</a><br/>
             214 Sitterson Hall CB 3175<br/>
             919-962-1931</p>
             
-            <p><a href="http://www.cs.unc.edu/~gb/">Gary Bishop</a>
+            <p><a href="http://www.cs.unc.edu/~gb/">Gary Bishop</a><br/>
              <a href="mailto:gb@cs.unc.edu">gb@cs.unc.edu</a><br/>
             255 Sitterson Hall CB 3175<br/>
             919-962-1886</p>

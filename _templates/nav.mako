@@ -3,6 +3,7 @@
           <ul id="menu" class="clearfix">
             ${item("", "Home")}
             ${item("blog/", "Blog")}
+            ${item("links.html", "Links")}
             ${item("syllabus.html", "Syllabus")}
           </ul>
           <br class="clear" />
