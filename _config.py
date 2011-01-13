@@ -20,8 +20,6 @@ site.host = "http://www.cs.unc.edu"
 site.root = "/~gb/" + site.folder
 site.url = site.host + site.root
 
-print site.url
-
 site.git = '/home/gb/Web/' + site.folder
 site.branch = '116'
 site.dir = '/home/gb/public_html/' + site.folder
