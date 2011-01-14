@@ -4,7 +4,9 @@
 <%inherit file="_templates/site.mako" />
 <h1>Welcome</h1>
 <p>
-Welcome to the web page for Comp 915 Technical Communication in Computer Science.
+Welcome to the web page for Comp 915 Technical Communication in Computer Science.</p>
+
+<p><a href="files/915-11s Plan.pdf">Plan for Spring 2011.</a>
 </p>
 
 <h3>Latest posts</h3>
