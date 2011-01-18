@@ -12,14 +12,14 @@
       href="${bf.config.site.root}feed/" />
     <link rel="alternate" type="application/atom+xml" title="Atom 1.0"
       href="${bf.config.site.root}feed/atom/')}" />
-    <link href="${bf.config.site.root}css/960.css" rel="stylesheet" type="text/css" />
-    <link href="${bf.config.site.root}css/style.css" rel="stylesheet" type="text/css" />
+    <link href="${bf.config.site.root}css/960.css?v=1" rel="stylesheet" type="text/css" />
+    <link href="${bf.config.site.root}css/style.css?v=2" rel="stylesheet" type="text/css" />
     <!--[if lt IE 9]>
-    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js?v=1" type="text/javascript"></script>
     <![endif]-->
     
     <!--[if lte IE 7]>
-    	<link href="css/ie.css" rel="stylesheet" type="text/css" />
+    	<link href="css/ie.css?v=1" rel="stylesheet" type="text/css" />
     <![endif]-->
     
     ${self.header_extra()}
