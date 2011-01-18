@@ -6,8 +6,9 @@
 <p>
 Welcome to the web page for Comp 915 Technical Communication in Computer Science.</p>
 
-<p><a href="files/915-11s Plan.pdf">Plan for Spring 2011.</a>
-</p>
+<p><a href="files/915-11s Plan.pdf">Plan for Spring 2011.</a></p>
+
+<p><a href="blog/2011/01/18/speaker-schedule/">Speaker Schedule</a></p>
 
 <h3>Latest posts</h3>
 <ul>

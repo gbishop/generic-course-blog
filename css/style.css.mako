@@ -516,3 +516,30 @@ img.alignright { margin-left: 15px; }
 	transform: rotate(-1deg);
  }
 */
+
+.hor-minimalist
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	background: #fff;
+	margin: 45px;
+	width: 480px;
+	border-collapse: collapse;
+	text-align: left;
+}
+.hor-minimalist th
+{
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px 8px;
+	border-bottom: 2px solid #6678b1;
+}
+.hor-minimalist td
+{
+	padding: 9px 8px 0px 8px;
+        border-bottom: 2px solid grey;
+}
+.hor-minimalist tbody tr:hover td
+{
+}
+
