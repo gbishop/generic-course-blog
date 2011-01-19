@@ -143,9 +143,9 @@ ul { list-style: disc; }
 li { margin-left: 30px; }
 
 pre {
-	background: ${colors.preBackground};
 	border: 2px solid ${colors.preBorder};
 	font-size: 12px;
+        font-weight: bold;
 	padding: 10px;
 	-webkit-box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.65);
 	-moz-box-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.65);
