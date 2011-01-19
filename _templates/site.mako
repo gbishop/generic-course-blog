@@ -13,7 +13,7 @@
     <link rel="alternate" type="application/atom+xml" title="Atom 1.0"
       href="${bf.config.site.root}feed/atom/')}" />
     <link href="${bf.config.site.root}css/960.css?v=1" rel="stylesheet" type="text/css" />
-    <link href="${bf.config.site.root}css/style.css?v=3" rel="stylesheet" type="text/css" />
+    <link href="${bf.config.site.root}css/style.css?v=4" rel="stylesheet" type="text/css" />
     <!--[if lt IE 9]>
     	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js?v=1" type="text/javascript"></script>
     <![endif]-->
