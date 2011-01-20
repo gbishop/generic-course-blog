@@ -34,7 +34,9 @@
             255 Sitterson Hall CB 3175<br/>
             919-962-1886<br/>
             <br/>
-            Teaching Assistant: <br/>
+            Teaching Assistants: <br/>
+            Sujeong Kim, SN008, sujeong@cs.unc.edu<br/>
+            Luis Torres, SN008, luis@cs.unc.edu<br/>
             <br/>
             Feed: <a class="feed" href="${bf.util.site_path_helper(bf.config.blog.path,'feed/')}">Posts</a>
 % if bf.config.blog.disqus.enabled:

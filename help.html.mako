@@ -14,19 +14,19 @@
   Gary Bishop (SN255) gb@cs.unc.edu
  </dt> 
  <dd> 
-  TBD
+  Monday 2-3, Tuesday 9-10, Wednesday 2-3, Thursday 9-10 
  </dd> 
  <dt> 
-  TBD
+  Sujeong Kim (SN008) sujeong@cs.unc.edu
  </dt> 
  <dd> 
-  TBD
+  Monday 2-4, Thursday 2:20-3:20 
  </dd> 
  <dt> 
-  TBD
+  Luis Torres (SN008) luis@cs.unc.edu
  </dt> 
  <dd> 
-  TBD
+  Thursday 1:30-3:30, Friday 1:30-3:30
  </dd> 
 </dl> 
 <h3> 
