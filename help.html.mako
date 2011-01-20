@@ -26,7 +26,7 @@
   Luis Torres (SN008) luis@cs.unc.edu
  </dt> 
  <dd> 
-  Thursday 1:30-3:30, Friday 1:30-3:30
+  Thursday 1:30-3:00, Friday 1:30-3:00
  </dd> 
 </dl> 
 <h3> 
