@@ -1,0 +1,177 @@
+---
+title: Transcript Curve Fitting
+slug: transcript
+categories: Transcripts
+tags: 
+date: 2011/01/24 12:46:31
+---
+<p>Script started on Mon 24 Jan 2011 11:05:47 AM EST</p>
+<pre>
+Enthought Python Distribution -- http://www.enthought.com
+
+Python 2.6.6 |EPD 6.3-2 (32-bit)| (r266:84292, Sep 17 2010, 19:21:04) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 0.10.1 -- An enhanced Interactive Python.
+?         -&gt; Introduction and overview of IPython's features.
+%quickref -&gt; Quick reference.
+help      -&gt; Python's own help system.
+object?   -&gt; Details about 'object'. ?object also works, ?? prints more.
+
+  Welcome to pylab, a matplotlib-based Python environment.
+  For more information, type 'help(pylab)'.
+
+In [1]: m = 5
+
+In [2]: b = 30
+
+In [3]: x = np.arange(10.0)
+
+In [4]: x
+Out[4]: array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9.])
+
+In [5]: y = m * x + b
+
+In [6]: y
+Out[6]: array([ 30.,  35.,  40.,  45.,  50.,  55.,  60.,  65.,  70.,  75.])
+
+In [7]: plot(x,y)
+Out[7]: [&lt;matplotlib.lines.Line2D object at 0xaa0482c&gt;]
+
+In [8]: np.random?
+
+In [9]: z = m * x + b + np.random.randn(10)*5
+
+In [10]: plot(x,z)
+Out[10]: [&lt;matplotlib.lines.Line2D object at 0xac867cc&gt;]
+
+In [11]: x
+Out[11]: array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9.])
+
+In [12]: np.ones_like(x)
+Out[12]: array([ 1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.])
+
+In [13]: A = np.array([x, ones_like(x)])
+
+In [14]: A
+Out[14]: 
+array([[ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9.],
+       [ 1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.]])
+
+In [15]: A = A.T
+
+In [16]: A
+Out[16]: 
+array([[ 0.,  1.],
+       [ 1.,  1.],
+       [ 2.,  1.],
+       [ 3.,  1.],
+       [ 4.,  1.],
+       [ 5.,  1.],
+       [ 6.,  1.],
+       [ 7.,  1.],
+       [ 8.,  1.],
+       [ 9.,  1.]])
+
+In [17]: np.array([x,ones_like(x)]).T
+Out[17]: 
+array([[ 0.,  1.],
+       [ 1.,  1.],
+       [ 2.,  1.],
+       [ 3.,  1.],
+       [ 4.,  1.],
+       [ 5.,  1.],
+       [ 6.,  1.],
+       [ 7.,  1.],
+       [ 8.,  1.],
+       [ 9.,  1.]])
+
+In [18]: np.linalg.lstsq?
+
+In [19]: r = np.linalg.lstsq(A,z)
+
+In [20]: r
+Out[20]: 
+(array([  5.96172436,  24.26523332]),
+ array([ 331.1751198]),
+ 2,
+ array([ 17.09316714,   1.68036813]))
+
+In [21]: r[0]
+Out[21]: array([  5.96172436,  24.26523332])
+
+In [22]: me = r[0][0]
+
+In [23]: be = r[0][1]
+
+In [24]: ze = me * x + be
+
+In [25]: plot(x,y,x,z,x,ze)
+Out[25]: 
+[&lt;matplotlib.lines.Line2D object at 0xad65cec&gt;,
+ &lt;matplotlib.lines.Line2D object at 0xae86f6c&gt;,
+ &lt;matplotlib.lines.Line2D object at 0xae8d20c&gt;]
+
+In [26]: t = np.arange(100.0)/100
+
+In [27]: h = 5 * t**2 - 3 * t + 23
+
+In [28]: plot(t, h)
+Out[28]: [&lt;matplotlib.lines.Line2D object at 0xac860ec&gt;]
+
+In [29]: hn = h + np.random.randn(100)
+
+In [30]: plot(t,h,t,hn)
+Out[30]: 
+[&lt;matplotlib.lines.Line2D object at 0xaf52d4c&gt;,
+ &lt;matplotlib.lines.Line2D object at 0xaf8f74c&gt;]
+
+In [31]: hn = h + np.random.randn(100)*0.1
+
+In [32]: plot(t,h,t,hn)
+Out[32]: 
+[&lt;matplotlib.lines.Line2D object at 0xb031f0c&gt;,
+ &lt;matplotlib.lines.Line2D object at 0xb71558ec&gt;]
+
+In [33]: A = np.array([t**2,t,np.ones_like(t)]).T
+
+In [34]: A.shape
+Out[34]: (100, 3)
+
+In [35]: s = np.linalg.lstsq(A,hn)[0]
+
+In [36]: s
+Out[36]: array([  4.92413501,  -2.91946347,  22.98250814])
+
+In [37]: plot(t,h,t,hn,t,np.dot(A,s))
+Out[37]: 
+[&lt;matplotlib.lines.Line2D object at 0xb7168d0c&gt;,
+ &lt;matplotlib.lines.Line2D object at 0xb10368c&gt;,
+ &lt;matplotlib.lines.Line2D object at 0xb10390c&gt;]
+
+In [38]: plot(t,h,t,hn,t,np.dot(A,s))
+Out[38]: 
+[&lt;matplotlib.lines.Line2D object at 0xb11412c&gt;,
+ &lt;matplotlib.lines.Line2D object at 0xb11462c&gt;,
+ &lt;matplotlib.lines.Line2D object at 0xb114b4c&gt;]
+
+In [39]: help least squares
+-------&gt; help(least squares)
+------------------------------------------------------------
+   File "&lt;ipython console&gt;", line 1
+     help(least squares)
+                      ^
+SyntaxError: invalid syntax
+
+
+In [40]: help('least squares')
+no Python documentation found for 'least squares'
+
+
+In [41]: 
+Do you really want to exit ([y]/n)? 
+Closing threads... Done.
+
+Script done on Mon 24 Jan 2011 12:10:30 PM EST
+Comp116$ 
+</pre>
