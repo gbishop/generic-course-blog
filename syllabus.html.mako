@@ -18,11 +18,7 @@
       <a href="http://www.cs.unc.edu/%7Egb">http://www.cs.unc.edu/~gb</a>)
     </p>
     <p>
-      <strong>Office hours:</strong> TBD (I&rsquo;m around most of
-      the time)
-    </p>
-    <p>
-      <strong>Teaching Assistants:</strong> TBD
+      <strong>Office hours:</strong> See the <a href="http://www.cs.unc.edu/~gb/Comp116Spring2011/help.html">help page</a>.
     </p>
     <p>
       <strong>Catalog description:</strong> COMP 116 Introduction
