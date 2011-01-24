@@ -1,0 +1,227 @@
+---
+title: Transcript 
+slug: transcript
+categories: Transcripts
+tags: 
+date: 2011/01/21 11:07:16
+---
+<p>Script started on Fri 21 Jan 2011 11:07:16 AM EST</p>
+<pre>
+Enthought Python Distribution -- http://www.enthought.com
+
+Python 2.6.6 |EPD 6.3-2 (32-bit)| (r266:84292, Sep 17 2010, 19:21:04) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 0.10.1 -- An enhanced Interactive Python.
+?         -&gt; Introduction and overview of IPython's features.
+%quickref -&gt; Quick reference.
+help      -&gt; Python's own help system.
+object?   -&gt; Details about 'object'. ?object also works, ?? prints more.
+
+  Welcome to pylab, a matplotlib-based Python environment.
+  For more information, type 'help(pylab)'.
+
+In [1]: a = np.array([42, 7, 3, 12, 9, 23])
+
+In [2]: a
+Out[2]: array([42,  7,  3, 12,  9, 23])
+
+In [3]: a[5]
+Out[3]: 23
+
+In [4]: a[-1]
+Out[4]: 23
+
+In [5]: a.max()
+Out[5]: 42
+
+In [6]: a.min()
+Out[6]: 3
+
+In [7]: a.mean()
+Out[7]: 16.0
+
+In [8]: a.max
+Out[8]: &lt;built-in method max of numpy.ndarray object at 0xb721c4a8&gt;
+
+In [9]: 3 * (1 + 2)
+Out[9]: 9
+
+In [10]: a.sum()
+Out[10]: 96
+
+In [11]: a.sum() / a.length()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+
+/home/gb/Dropbox/Comp116/&lt;ipython console&gt; in &lt;module&gt;()
+
+AttributeError: 'numpy.ndarray' object has no attribute 'length'
+
+In [12]: a.l?
+Object `a.l` not found.
+
+In [13]: len(a)
+Out[13]: 6
+
+In [14]: a.sum() / len(a)
+Out[14]: 16
+
+In [15]: a.argmax()
+Out[15]: 0
+
+In [16]: a.argmin()
+Out[16]: 2
+
+In [17]: a
+Out[17]: array([42,  7,  3, 12,  9, 23])
+
+In [18]: a[3] = 42
+
+In [19]: a
+Out[19]: array([42,  7,  3, 42,  9, 23])
+
+In [20]: a.argmax()
+Out[20]: 0
+
+In [21]: b = np.array([1,2,3,-7,3.14159])
+
+In [22]: b
+Out[22]: array([ 1.     ,  2.     ,  3.     , -7.     ,  3.14159])
+
+In [23]: b.argmax()
+Out[23]: 4
+
+In [24]: b.argmin()
+Out[24]: 3
+
+In [25]: x = np.array([42, 7, 3, 12, 9, 23],float)
+
+In [26]: x
+Out[26]: array([ 42.,   7.,   3.,  12.,   9.,  23.])
+
+In [27]: x = np.array([42, 7, 3, 12, 9, 23.3],float)
+
+In [28]: x
+Out[28]: array([ 42. ,   7. ,   3. ,  12. ,   9. ,  23.3])
+
+In [29]: x = np.array([42, 7, 3, 12, 9, 23.3],int)
+
+In [30]: x
+Out[30]: array([42,  7,  3, 12,  9, 23])
+
+In [31]: int(1.3)
+Out[31]: 1
+
+In [32]: int(1.9)
+Out[32]: 1
+
+In [33]: int(-1.3)
+Out[33]: -1
+
+In [34]: int(-1.9)
+Out[34]: -1
+
+In [35]: -5/2
+Out[35]: -3
+
+In [36]: a.std()
+Out[36]: 16.072751268321593
+
+In [37]: a.var()
+Out[37]: 258.33333333333331
+
+In [38]: a
+Out[38]: array([42,  7,  3, 42,  9, 23])
+
+In [39]: a[:3]
+Out[39]: array([42,  7,  3])
+
+In [40]: a[0::2]
+Out[40]: array([42,  3,  9])
+
+In [41]: m = a.mean()
+
+In [42]: m
+Out[42]: 21.0
+
+In [43]: a &gt; m
+Out[43]: array([ True, False, False,  True, False,  True], dtype=bool)
+
+In [44]: gtrm = a &gt; m
+
+In [45]: gtrm.sum()
+Out[45]: 3
+
+In [46]: a[gtrm]
+Out[46]: array([42, 42, 23])
+
+In [47]: a[a &gt; a.mean()]
+Out[47]: array([42, 42, 23])
+
+In [48]: a[a &lt; a.mean()]
+Out[48]: array([7, 3, 9])
+
+In [49]: a[a &lt;= a.mean()]
+Out[49]: array([7, 3, 9])
+
+In [50]: a[a &gt;= a.mean()]
+Out[50]: array([42, 42, 23])
+
+In [51]: m = np.array([[1.5,2.3,-7.4],[3.2,-14,23.6]], float)
+
+In [52]: m
+Out[52]: 
+array([[  1.5,   2.3,  -7.4],
+       [  3.2, -14. ,  23.6]])
+
+In [53]: m[0,0]
+Out[53]: 1.5
+
+In [54]: m[-1,0]
+Out[54]: 3.2000000000000002
+
+In [55]: m[1,0]
+Out[55]: 3.2000000000000002
+
+In [56]: m[0,2]
+Out[56]: -7.4000000000000004
+
+In [57]: m
+Out[57]: 
+array([[  1.5,   2.3,  -7.4],
+       [  3.2, -14. ,  23.6]])
+
+In [58]: m[0,:]
+Out[58]: array([ 1.5,  2.3, -7.4])
+
+In [59]: m[0,]
+Out[59]: array([ 1.5,  2.3, -7.4])
+
+In [60]: m[,0]
+------------------------------------------------------------
+   File "&lt;ipython console&gt;", line 1
+     m[,0]
+       ^
+SyntaxError: invalid syntax
+
+
+In [61]: m[:,0]
+Out[61]: array([ 1.5,  3.2])
+
+In [62]: m
+Out[62]: 
+array([[  1.5,   2.3,  -7.4],
+       [  3.2, -14. ,  23.6]])
+
+In [63]: m[:,0:3:2]
+Out[63]: 
+array([[  1.5,  -7.4],
+       [  3.2,  23.6]])
+
+In [64]: 
+Do you really want to exit ([y]/n)? 
+Closing threads... Done.
+
+Script done on Fri 21 Jan 2011 11:52:13 AM EST
+</pre>
