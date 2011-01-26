@@ -5,4 +5,99 @@ categories: Transcript
 tags: 
 date: 2011/01/26 10:13:54
 ---
-<p>Here is the <a href="/~gb/Comp116Spring2011/files/payroll.csv">data file</a> we'll use in class today. I'll post the transcript below after class.</p>
+<p>Here is the <a href="/~gb/Comp116Spring2011/files/payroll.csv">data file</a> we'll use in class today. The data is from a spreadsheet with one row per worker. The first column is the hourly pay  rate. The second column is the number of hours worked. The third row is the number of units of work completed.</p>
+
+<p>I'll post the transcript below after class.</p>
+
+<pre>
+
+In [1]: # find out where I am
+
+In [2]: pwd
+Out[2]: '/home/gb/Dropbox/Comp116'
+
+# go to the desktop where I downloaded the file
+
+In [3]: cd ~/Desktop
+/home/gb/Desktop
+
+In [4]: p = np.loadtxt('payroll.csv', delimiter=",")
+
+In [5]: p
+Out[5]: 
+array([[  8.25,  40.  ,  78.  ],
+       [  8.25,  43.  ,  85.  ],
+       [  9.5 ,  40.  ,  97.  ],
+       [  7.75,  35.  ,  50.  ]])
+
+In [6]: payrate = p[:,0]
+
+In [7]: payrate
+Out[7]: array([ 8.25,  8.25,  9.5 ,  7.75])
+
+In [8]: p[:,1:3]
+Out[8]: 
+array([[ 40.,  78.],
+       [ 43.,  85.],
+       [ 40.,  97.],
+       [ 35.,  50.]])
+
+In [9]: p[:,1]
+Out[9]: array([ 40.,  43.,  40.,  35.])
+
+In [10]: hours = p[0:,1]
+
+In [11]: hours
+Out[11]: array([ 40.,  43.,  40.,  35.])
+
+In [12]: p[0:4,1]
+Out[12]: array([ 40.,  43.,  40.,  35.])
+
+In [13]: payrate
+Out[13]: array([ 8.25,  8.25,  9.5 ,  7.75])
+
+In [14]: hours
+Out[14]: array([ 40.,  43.,  40.,  35.])
+
+In [15]: payrate * hours
+Out[15]: array([ 330.  ,  354.75,  380.  ,  271.25])
+
+In [16]: np.clip?
+
+In [17]: np.clip(hour, 0, 40)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+
+/home/gb/Desktop/&lt;ipython console&gt; in &lt;module&gt;()
+
+NameError: name 'hour' is not defined
+
+In [18]: np.clip(hours, 0, 40)
+Out[18]: array([ 40.,  40.,  40.,  35.])
+
+In [19]: stdhours = np.clip(hours, 0, 40)
+
+In [20]: hours - 40
+Out[20]: array([ 0.,  3.,  0., -5.])
+
+In [21]: hours - stdhours
+Out[21]: array([ 0.,  3.,  0.,  0.])
+
+In [22]: othours = hours - stdhours
+
+In [23]: hours
+Out[23]: array([ 40.,  43.,  40.,  35.])
+
+In [24]: stdhours
+Out[24]: array([ 40.,  40.,  40.,  35.])
+
+In [25]: othours
+Out[25]: array([ 0.,  3.,  0.,  0.])
+
+In [26]: stdhours * payrate + othours * (payrate * 1.5)
+Out[26]: array([ 330.   ,  367.125,  380.   ,  271.25 ])
+
+In [27]: payrate - payrate.mean()
+Out[27]: array([-0.1875, -0.1875,  1.0625, -0.6875])
+
+</pre>
