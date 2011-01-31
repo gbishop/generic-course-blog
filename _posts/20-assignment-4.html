@@ -1,0 +1,49 @@
+---
+title: Assignment 4 River Data 
+slug: assignment-4
+categories: Assignments
+tags: 
+date: 2011/01/30 21:50:03
+---
+<p><b>Due Monday 14 February</b></p>
+
+<p>This assignment involves working with and plotting data in arrays. Download this <a href="/~gb/Comp116Spring2011/files/A4.zip">zip file</a> and extract it onto your Desktop. It should create a folder named “A4″ with the things you need inside. You will develop your script starting from the template A4.py provided.</p>
+
+<p>The template A4.py reads several datasets from files. These datasets are:</p>
+
+<p>Monthly Jordan and Falls Lake data (from Army Corps of Engineers)</p>
+
+<p>depth: a 276×2 array with depth of Jordan and Falls lakes for each month from Jan 1985 to Dec 2007, which is 23 years. Data that is not available is NaN.</p>
+
+<p>rain: a 276×2 array with total rainfall in inches for each month</p>
+
+<p>Daily Haw river and Jordan Lake data (from USGS)</p>
+
+<p>hawgage: a 365×4 array of daily average river or lake height (ft) at Haw River, Bynum, and above &amp; below the Jordan Lake Dam by Moncure. (These sites are listed upstream to downstream, but the gauges are not in that order.)</p>
+
+<p>hawrain: a 365×2 array of daily rainfall (in) measured at two rain gauges from 29 Aug 07 –28 Aug 08.</p>
+
+<p>Things to do with the Monthly Jordan and Falls Lake data</p>
+
+<ol>
+<li>Plot a line graph of depths for both lakes.</li>
+
+<li>The targets for Jordan and Falls lakes are 216ft and 251.5ft, respectively. For how many months was each lake over its target?</li>
+
+<li>Plot the rain in August as a line graph over years for both lakes.</li>
+
+<li>Compute the average height that Falls Lake is above its target for each month over the 23 years from 1985-2007, and display as bar chart with a bar for each month. Plot the line for 2007 in red on top of this bar chart. Note: height above allows for negative numbers; the lake is sometimes below its target.</li>
+</ol>
+
+<p>Things to do with the daily Haw river/Jordan Lake data</p>
+
+<ol start="5">
+
+<li>Determine how many days had more than 1 in of precipitation at both the two sites in hawrain on the same day, and how many days had less than 1/4 in.</li>
+
+<li>Plot line graphs showing the cumulative amount of rain over the past year at both sites. Which of the two locations (1 or 2) received the most rain? (answer in the file)</li>
+
+<li>Determine the lowest height for each gauge, and create an array of adjusted heights by subtracting the corresponding lowest heights. Plot these adjust heights as a line graph.</li>
+
+<li>Determine the maximum increase and maximum decrease in height from one day to the next for each of the four gauges in hawgage. Print the 4 values.</li>
+</ol>
