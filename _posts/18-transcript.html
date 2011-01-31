@@ -6,3 +6,281 @@ tags:
 date: 2011/01/27 12:00:05
 ---
 <p>Here is some data for our work in lab on Friday 28 January. <a href="/~gb/Comp116Spring2011/files/babies.txt">babies.txt</a></p>
+<p>Script started on Fri 28 Jan 2011 10:58:33 AM EST</p>
+<pre>
+Enthought Python Distribution -- http://www.enthought.com
+
+Python 2.6.6 |EPD 6.3-2 (32-bit)| (r266:84292, Sep 17 2010, 19:21:04) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 0.10.1 -- An enhanced Interactive Python.
+?         ->gt; Introduction and overview of IPython's features.
+%quickref ->gt; Quick reference.
+help      ->gt; Python's own help system.
+object?   ->gt; Details about 'object'. ?object also works, ?? prints more.
+
+  Welcome to pylab, a matplotlib-based Python environment.
+  For more information, type 'help(pylab)'.
+
+In [1]: pwd
+Out[1]: '/home/gb/Dropbox/Comp116'
+
+In [2]: cd ~/Desktop
+/home/gb/Desktop
+
+In [3]: ls
+1996notes.txt~		    fysnotes.txt     SamuelNotes.txt~
+A3/			    gud.txt	     Sun/
+babies.txt		    gud.txt~	     ThroughDeafEyes.txt
+BeautifulSoup-3.2.0/	    Montage/	     ThroughDeafEyes.txt~
+DB notes~		    output.pdf	     todo.txt
+dojo-release-1.4.0-src/     payroll.csv      Weather/
+Enthought_pylab32.desktop*  questions.txt    workstudy.txt
+FMnotes.txt~		    SamuelNotes.txt
+
+In [4]: data = np.loadtxt('babies.txt')
+
+In [5]: data.shape
+Out[5]: (439, 2)
+
+In [6]: w = data[:,0]
+
+In [7]: w.shape
+Out[7]: (439,)
+
+In [8]: f = data[:,1]==1
+
+In [9]: f[:10]
+Out[9]: array([False,  True,  True,  True, False, False,  True, False, False,  True], dtype=bool)
+
+In [10]: f.sum()
+Out[10]: 210
+
+In [11]: f.size
+Out[11]: 439
+
+In [12]: f.size - f.sum()
+Out[12]: 229
+
+In [13]: w[:10]
+Out[13]: array([ 5.34,  3.1 ,  7.5 ,  8.56,  6.03,  3.51,  8.25,  3.98,  4.54,  5.85])
+
+In [14]: gw = w[f]
+
+In [15]: gw.shape
+Out[15]: (210,)
+
+In [16]: bw = w[~f]
+
+In [17]: bw.shape
+Out[17]: (229,)
+
+In [18]: f == 0
+Out[18]: 
+array([ True, False, False, False,  True,  True, False,  True,  True,
+       False,  True,  True,  True, False,  True, False,  True, False,
+        True,  True,  True, False,  True,  True,  True,  True, False,
+        True, False,  True, False,  True, False,  True, False, False,
+        True, False,  True,  True,  True,  True,  True,  True,  True,
+       False, False,  True, False, False, False, False, False, False,
+        True,  True,  True, False,  True, False,  True, False, False,
+        True,  True, False,  True, False, False, False,  True,  True,
+        True,  True, False,  True,  True, False,  True, False, False,
+        True, False, False, False, False,  True, False,  True, False,
+       False, False, False,  True,  True,  True,  True, False,  True,
+       False,  True, False,  True, False, False,  True,  True, False,
+        True,  True,  True,  True,  True,  True, False,  True,  True,
+       False,  True,  True, False,  True, False,  True,  True,  True,
+        True, False,  True, False, False, False, False,  True,  True,
+        True, False, False, False,  True, False, False, False, False,
+        True,  True,  True, False, False, False, False, False,  True,
+       False,  True, False,  True,  True, False,  True,  True,  True,
+        True, False, False,  True, False, False, False, False, False,
+        True,  True, False, False, False,  True, False, False,  True,
+       False, False,  True, False, False, False,  True, False,  True,
+       False, False,  True,  True,  True, False,  True, False,  True,
+       False, False, False,  True,  True, False, False, False, False,
+       False, False, False, False,  True,  True, False, False,  True,
+        True,  True, False,  True, False,  True,  True, False, False,
+       False, False, False,  True,  True, False,  True,  True,  True,
+       False,  True, False,  True, False, False,  True,  True,  True,
+       False,  True, False,  True,  True, False,  True,  True,  True,
+       False, False,  True, False,  True, False, False, False,  True,
+        True, False, False,  True, False, False, False,  True, False,
+        True, False,  True, False, False, False, False,  True, False,
+        True, False, False, False, False,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True, False, False,  True,
+       False,  True, False,  True, False, False, False,  True, False,
+       False,  True, False, False, False,  True, False,  True, False,
+        True,  True,  True,  True,  True, False, False,  True,  True,
+        True, False, False, False,  True, False,  True, False, False,
+        True, False,  True,  True, False,  True,  True,  True,  True,
+        True,  True, False,  True,  True, False, False,  True,  True,
+       False, False,  True,  True,  True,  True,  True,  True,  True,
+        True, False,  True, False,  True,  True, False,  True, False,
+        True,  True, False, False, False, False,  True, False,  True,
+        True,  True,  True,  True,  True, False,  True,  True, False,
+       False, False,  True,  True,  True, False, False, False, False,
+       False,  True,  True, False, False,  True, False,  True, False,
+        True, False, False,  True, False, False,  True,  True,  True,
+        True, False, False,  True, False,  True, False,  True,  True,
+        True,  True,  True,  True, False,  True,  True,  True, False,
+        True,  True,  True,  True, False,  True, False], dtype=bool)
+
+In [19]: f == False
+Out[19]: 
+array([ True, False, False, False,  True,  True, False,  True,  True,
+       False,  True,  True,  True, False,  True, False,  True, False,
+        True,  True,  True, False,  True,  True,  True,  True, False,
+        True, False,  True, False,  True, False,  True, False, False,
+        True, False,  True,  True,  True,  True,  True,  True,  True,
+       False, False,  True, False, False, False, False, False, False,
+        True,  True,  True, False,  True, False,  True, False, False,
+        True,  True, False,  True, False, False, False,  True,  True,
+        True,  True, False,  True,  True, False,  True, False, False,
+        True, False, False, False, False,  True, False,  True, False,
+       False, False, False,  True,  True,  True,  True, False,  True,
+       False,  True, False,  True, False, False,  True,  True, False,
+        True,  True,  True,  True,  True,  True, False,  True,  True,
+       False,  True,  True, False,  True, False,  True,  True,  True,
+        True, False,  True, False, False, False, False,  True,  True,
+        True, False, False, False,  True, False, False, False, False,
+        True,  True,  True, False, False, False, False, False,  True,
+       False,  True, False,  True,  True, False,  True,  True,  True,
+        True, False, False,  True, False, False, False, False, False,
+        True,  True, False, False, False,  True, False, False,  True,
+       False, False,  True, False, False, False,  True, False,  True,
+       False, False,  True,  True,  True, False,  True, False,  True,
+       False, False, False,  True,  True, False, False, False, False,
+       False, False, False, False,  True,  True, False, False,  True,
+        True,  True, False,  True, False,  True,  True, False, False,
+       False, False, False,  True,  True, False,  True,  True,  True,
+       False,  True, False,  True, False, False,  True,  True,  True,
+       False,  True, False,  True,  True, False,  True,  True,  True,
+       False, False,  True, False,  True, False, False, False,  True,
+        True, False, False,  True, False, False, False,  True, False,
+        True, False,  True, False, False, False, False,  True, False,
+        True, False, False, False, False,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True, False, False,  True,
+       False,  True, False,  True, False, False, False,  True, False,
+       False,  True, False, False, False,  True, False,  True, False,
+        True,  True,  True,  True,  True, False, False,  True,  True,
+        True, False, False, False,  True, False,  True, False, False,
+        True, False,  True,  True, False,  True,  True,  True,  True,
+        True,  True, False,  True,  True, False, False,  True,  True,
+       False, False,  True,  True,  True,  True,  True,  True,  True,
+        True, False,  True, False,  True,  True, False,  True, False,
+        True,  True, False, False, False, False,  True, False,  True,
+        True,  True,  True,  True,  True, False,  True,  True, False,
+       False, False,  True,  True,  True, False, False, False, False,
+       False,  True,  True, False, False,  True, False,  True, False,
+        True, False, False,  True, False, False,  True,  True,  True,
+        True, False, False,  True, False,  True, False,  True,  True,
+        True,  True,  True,  True, False,  True,  True,  True, False,
+        True,  True,  True,  True, False,  True, False], dtype=bool)
+
+In [20]: bw.mean()
+Out[20]: 5.4581222707423587
+
+In [21]: gw.mean()
+Out[21]: 5.5039047619047619
+
+In [22]: bw.mean() &lt; gw.mean()
+Out[22]: True
+
+In [23]: w.std()
+Out[23]: 1.7212316799502205
+
+In [24]: plot(w)
+Out[24]: [&lt;matplotlib.lines.Line2D object at 0xa0e86ec>gt;]
+
+In [25]: hist(w)
+Out[25]: 
+(array([65, 56, 68, 84, 71, 50, 21, 18,  3,  3]),
+ array([  2.58,   3.43,   4.28,   5.13,   5.98,   6.83,   7.68,   8.53,
+         9.38,  10.23,  11.08]),
+ &lt;a list of 10 Patch objects>gt;)
+
+In [26]: sum(bw >gt; bw.mean() + bw.std())
+Out[26]: 39
+
+In [27]: cbw = bw [ bw >gt; bw.mean() + bw.std() ]
+
+In [28]: cbw
+Out[28]: 
+array([  9.  ,   7.74,   7.76,   8.26,   7.24,   9.27,   7.27,   7.56,
+         9.02,   7.15,   9.19,   8.55,   7.27,   7.18,   7.22,   7.69,
+         7.17,   8.33,   8.34,  10.6 ,   7.26,   8.28,   7.33,   7.43,
+         7.59,   7.63,   7.94,   7.48,   7.23,   7.45,   7.15,   9.94,
+         7.9 ,   7.39,   7.28,   8.97,   8.6 ,   9.08,   9.01])
+
+In [29]: tgw = gw [ np.abs(gw - gw.mean()) &lt; gw.std() ]
+
+In [30]: tgw.min()
+Out[30]: 3.75
+
+In [31]: tgw.max()
+Out[31]: 7.25
+
+In [32]: s = gw.std()
+
+In [33]: typ = np.logica
+np.logical_and  np.logical_not  np.logical_or   np.logical_xor
+
+In [33]: typ = np.logical_and(gw &lt; gw.mean() + s, gw >gt; gw.mean() - s)
+
+In [34]: typ
+Out[34]: 
+array([False, False, False, False,  True,  True, False,  True,  True,
+       False,  True,  True,  True,  True,  True,  True,  True, False,
+        True, False,  True, False, False,  True, False,  True,  True,
+       False, False,  True,  True,  True, False,  True,  True, False,
+        True, False,  True,  True, False,  True, False,  True,  True,
+       False,  True, False,  True, False, False, False,  True,  True,
+       False,  True,  True, False, False, False, False, False, False,
+        True, False,  True,  True,  True,  True,  True, False,  True,
+       False, False,  True,  True,  True,  True,  True, False, False,
+       False,  True,  True, False, False,  True,  True,  True, False,
+        True,  True,  True,  True, False,  True,  True,  True, False,
+        True,  True,  True,  True,  True, False,  True, False,  True,
+       False,  True,  True,  True, False,  True, False,  True, False,
+       False,  True, False,  True, False,  True,  True,  True,  True,
+       False,  True, False,  True,  True, False,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True, False,  True,  True,  True, False,  True,  True,
+        True,  True,  True,  True, False,  True,  True, False,  True,
+        True,  True,  True, False,  True, False, False,  True,  True,
+        True,  True, False, False,  True, False, False,  True,  True,
+       False,  True,  True,  True, False,  True,  True, False, False,
+        True, False,  True, False, False,  True,  True,  True, False,
+       False,  True, False,  True,  True, False,  True,  True, False,
+        True, False,  True], dtype=bool)
+
+In [35]: tgw = gw[typ]
+
+In [36]: tgw
+Out[36]: 
+array([ 5.85,  6.67,  5.32,  6.38,  6.38,  4.06,  6.07,  5.73,  6.44,
+        5.74,  4.89,  4.34,  5.65,  3.87,  5.96,  6.58,  4.8 ,  5.67,
+        5.74,  5.7 ,  4.72,  5.5 ,  4.41,  6.46,  5.95,  5.89,  5.01,
+        4.28,  5.88,  5.12,  6.93,  6.28,  4.39,  4.25,  4.55,  7.17,
+        4.67,  3.92,  5.58,  4.94,  5.8 ,  6.2 ,  5.56,  5.89,  4.87,
+        5.38,  5.26,  6.29,  4.63,  4.09,  4.39,  5.39,  6.11,  7.24,
+        5.08,  6.99,  4.58,  6.37,  5.67,  6.74,  7.23,  4.64,  5.29,
+        5.23,  6.44,  6.03,  4.97,  5.8 ,  6.87,  4.11,  4.7 ,  5.48,
+        6.89,  4.56,  6.23,  4.1 ,  4.71,  6.63,  5.32,  6.42,  5.62,
+        6.86,  6.97,  4.76,  6.02,  5.29,  6.1 ,  4.68,  6.01,  4.36,
+        4.25,  6.12,  3.88,  5.84,  4.13,  4.9 ,  6.69,  5.19,  3.92,
+        6.33,  4.16,  6.32,  6.18,  4.9 ,  5.74,  5.75,  6.97,  4.68,
+        5.45,  4.74,  6.46,  6.57,  3.75,  6.23,  4.84,  5.28,  5.24,
+        4.02,  4.11,  4.44,  5.83,  5.26,  6.31,  6.47,  7.25,  6.71,
+        6.45,  5.87,  4.85,  4.59,  5.37,  6.27])
+
+In [37]: tgw = gw [ np.abs(gw - gw.mean()) &lt; 2*gw.std() ]
+
+In [38]: 
+Do you really want to exit ([y]/n)? 
+Closing threads... Done.
+
+Script done on Fri 28 Jan 2011 11:57:27 AM EST
+</pre>
