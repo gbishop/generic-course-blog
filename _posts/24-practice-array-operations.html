@@ -1,0 +1,55 @@
+---
+title: Practice array operations 
+slug: practice-array-operations
+categories: Info
+tags: 
+date: 2011/02/02 09:31:01
+---
+<p>Several of you have asked for more practice with array operations. These explore some edge cases that may surprise you. Think about what they should do and then try them out at the command prompt.</p>
+
+<pre>
+# M is a 3 by 4 matrix
+M = np.array([ [ 1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12] ] )
+
+# V4 is a 4-element vector
+V4 = np.array([ 100, 200, 300, 400 ])
+
+# V3 is a 3-element vector
+V3 = np.array([ 500, 600, 700 ])
+
+# R4 is a 1 by 4 matrix (a row)
+R4 = np.array([ [ 100, 200, 300, 400 ] ])
+
+# C3 is a 3 by 1 matrix (a column)
+C3 = np.array([ [ 500, 600, 700 ] ] ).T
+
+# now think about how we can combine these
+
+M + 100
+
+M + V4
+
+V4 + M
+
+M + V3
+
+V3 + M
+
+R4 + M
+
+M + R4
+
+M + C3
+
+C3 + M
+
+M.mean(0)
+
+M - M.mean(0)
+
+M.mean(1)
+
+M - M.mean(1)
+</pre>
+
+<p>Notice that not all combinations are allowed. Why? Explore other combinations. For example, make yourself a 3 by 3 matrix and see which operations work.</p>
