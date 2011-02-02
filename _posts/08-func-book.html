@@ -60,4 +60,24 @@ dt { font-family: Courier, monospace; }
         <dd>The number of elements greater than 5</dd>
         <dt>len(A &gt; 5)</dt>
         <dd>Also the number of elements greater than 5</dd>
+        <dt>A.shape</dt>
+        <dd>a tuple of integers giving the length of each dimension of the array</dd>
+        <dt>A.shape = (r,c)</dt>
+        <dd>resize the array to have r rows and c columns. r*c must equal A.size</dd>
+        <dt>np.logical_and(A,B)</dt>
+        <dd>returns a vector of Booleans computed as the AND of values in A and B</dd>
+        <dt>np.logical_or(A,B)</dt>
+        <dd>returns a vector of Booleans computers as the OR of the values in A and B</dd>
+        <dt>np.abs(A)</dt>
+        <dd>returns the absolute value of each element in A</dd>
+        <dt>np.clip(A,low,high)</dt>
+        <dd>returns an array with values limited to the range low to high. That is, any values less than low are replaced with low and any values greater than high are replaced with high.</dd>
+        <dt>np.ones_like(A)</dt>
+        <dd>returns an array the same shape as A but filled with ones.</dd>
+        <dt>np.linalg.lstsq(A,B)</dt>
+        <dd>returns a tuple with several values. The first is the one we usually want. It is an array X that is closest in the least-squares sense to the solution np.dot(A,X) == B. That is, np.sum((np.dot(A,X) - B)**2) is minimized.</dd>
+        <dt>pylab.hist(B)</dt>
+        <dd>display the histogram of element frequencies in vector B</dd>
+        <dt>pylab.plot(A,B)</dt>
+        <dd>display a graph of B versus A.</dd>
 </dl>
