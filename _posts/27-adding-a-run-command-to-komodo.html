@@ -43,7 +43,7 @@ if (komodo.view) { komodo.view.setFocus() };
 komodo.doCommand('cmd_save')
 ko.run.output.kill(-1);
 setTimeout(function(){
-   ko.run.runEncodedCommand(window, 'python -i \"%F\" {\'cwd\': u\'%D\'}');
+   ko.run.runEncodedCommand(window, '/Library/Frameworks/Python.framework/Versions/Current/bin/python -i \"%F\" {\'cwd\': u\'%D\'}');
 }, 100);
 </pre>
 
