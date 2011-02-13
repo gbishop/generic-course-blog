@@ -1,0 +1,90 @@
+---
+title: Quiz 4 Preparation Worksheet 
+slug: quiz-4-preparation-worksheet
+categories: Quiz Prep
+tags: 
+date: 2011/02/13 18:03:18
+---
+<p>Some problems to help you prepare for Wednesday’s quiz.</p>
+<pre>
+# testing logic
+x = 2
+
+7 &gt; x
+2 &lt;= x
+2 &lt; x
+(2 &gt; 3) and (5 &lt; 7)
+(2 &gt; 3) or (5 &lt; 7)
+4 == 8
+not (4 &lt; 5)
+
+#using logic tests with array indexing
+x = np.arange(2,13,2)
+y = np.reshape(x,(2,3))
+
+x &lt; 5
+~(x &lt; 5)
+y &lt; 7
+
+x[ x&lt;5 ]
+x[ ~(x&lt;5) ]
+y[ y &lt; 7] # won't quiz you on this one, but note how y loses its shape
+
+np.all(x&gt;5)
+np.any(x&lt;5)
+
+#If/else – what value is assigned to a?
+
+if 2 &gt; 3:
+    a = 'yes'
+else:
+    a = 'no'
+
+a
+
+if 5*2 &lt; 4:
+    a = 'true'
+else:
+    a = 'false'
+
+a
+
+x = 4
+y = 5
+if x &lt;= y:
+    a = 'yes'
+else:
+    a = 'no'
+
+a
+
+if (4 &lt; 6) or (3 != 7):
+    a = 'true'
+else :
+    a = 'false'
+
+a
+
+a = 19
+if a &lt; 10:
+    b = 1
+elif a &lt; 20:
+    b = 2
+else:
+    b = 3
+
+a = b
+a
+
+Rewrite the following statements to use only one if statement:
+if x &lt; y:
+    if z &lt; 10:
+        w = x*y*z
+
+Write the following statements as one if-elif-else statement:
+
+if d equals 5, set mycolor = 'green'
+if d equals 9, set mycolor =  'yellow'
+if d equals 17 set mycolor =  'red'
+if d is any other number, set mycolor =  'blue'
+</pre>
