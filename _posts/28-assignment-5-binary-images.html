@@ -1,0 +1,63 @@
+---
+title: Assignment 5 Binary Images 
+slug: assignment-5-binary-images
+categories: Assignments
+tags: 
+date: 2011/02/13 17:15:36
+---
+<p><b>Due 25 February</b></p>
+
+<p>Download the <a href="/~gb/Comp116Spring2011/files/A5.zip">template for this assignment</a> and unzip it onto your Desktop. It should result in a folder A5 containing A5.py and an image test.png. Your mission is to edit A5.py so that it performs as indicated below.</p>
+
+<p>In this assignment you will create new functions in Python for processing simple binary images with a single bright object in the foreground, and a dark background. The foreground has intensity 1, and the background intensity 0, so at times it is convenient to think of the image as an matrix of logical (true/false) data. The images for this assignment came from the <a href="http://www.lems.brown.edu/~dmc/">Laboratory for Engineering Man/Machine Systems at Brown University</a>.</p>
+
+<p>Below left is a binary image that shows a bright square in the dark background.</p>
+
+<p><img src="/~gb/Comp116Spring2011/files/BinaryImages.png" /></p>
+
+<p><b>1. Scrolling the Image</b></p>
+
+<p>Much of the animation in old video games, like Pacman and Super Mario Brothers, consists of a foreground image scrolling across a fixed background. Above right is what the box image looks like after scrolling left and right, respectively. You can make the foreground in a binary image scroll by clever array indexing.</p>
+
+<p>For this part of the assignment, you will create four different functions. Each function will take two parameters; the first is the binary image data, and the second is a number of pixels. Each function will return one value: the new binary image that is the same size as the input image. The names of the functions should be: <code>scrollLeft</code>, <code>scrollRight</code>, <code>scrollUp</code>, <code>scrollDown</code> and they should cause the foreground of the image parameter to move in the appropriate direction by the specified number of pixels. You may assume that the number of pixels specified in the second parameter is always smaller than the size of the image in the relevant direction. You should also assume that the background extends to infinity. When part of the image scrolls off of one side, you should create more 0s on the other side, so that the output image is the same size as the input image.</p>
+
+<p>Prototypes for these functions are included in the template for this assignment.</p>
+
+<p>After writing your functions, test them on the image provided with the assignment. Use your functions to produce the following results:</p>
+<p>1A. Scroll the image up by 10 pixels.</p>
+<p>1B. Scroll the result of part A down by 10 pixels.</p>
+<p>1C. Does the second result look the same as the original image? Why or why not? (answer in the template)</p>
+<p>1D. Scroll the test image left by half of its width.</p>
+<p>1E. and then scroll that result back to the right by the same amount.</p>
+
+<p><b>2. Boundary Detector</b></p>
+
+<p>A common image-processing task is to identify the boundary (outline) of an object. Conceptually the boundary is the set of all pixels in the foreground that are adjacent to the background. Here is an image of a dachshund and another image of its boundary.</p>
+
+<p><img src="/~gb/Comp116Spring2011/files/BinaryBoundary.png" /></p>
+
+<p>We can use the scrolling functions from the first part of this assignment to determine if a pixel is on the object boundary or not. Suppose that image is I, and LI is the result of the command: <code>LI = scrollLeft(I, 1)</code>.
+<p>A pixel, [i,j] is on the right edge of the boundary if and only if I[i,j] is foreground and LI[i,j] is background. You can use the other scrolling functions from part 1 to identify the pixels on the other sides of the boundary. Combine these tests together with the correct logical operator, and you will be able to identify the entire boundary of the object. For this part of the assignment you will write one function that has one input parameter: a binary image, and returns a single value, a new binary image, where only the edge of the original object is in the foreground. (The boundary images you produce will have only black and white intensities.) You should name this function <code>findBoundary</code>.</p>
+
+<p>For this part you should save an image 2.png that shows the boundary of the test image.</p>
+
+<p><b>3. Dilate and Erode</b></p>
+
+<p>Two other famous image processing operations are dilate and erode. Dilate makes the foreground grow into the background, and erode makes the foreground shrink, as if the background were washing it away. Here is an example showing the dilation and erosion of an image of a robot. The original image in the center is from the collection at Brown. The eroded image is on the left, and the dilated image is on the right.</p>
+
+<p><img src="/~gb/Comp116Spring2011/files/BinaryDilateErode.png" /></p>
+
+<p>It is easy to erode an image – just change the intensity of the boundary from 1 to 0. To dilate an image, you will need to write a new logical test to find pixels that are in the background of the original image, but are adjacent to a foreground pixel. For this problem you need to write two, functions, each of which takes an image as an input, and returns a new image as its output. Name these functions <code>dilateImage</code> and <code>erodeImage</code>.</p>
+
+<p>3A. Dilate the original image, and then dilate that result, and then dilate that result as well. Save the final result. Does it look like the same type of object as the original?</p>
+
+<p>3B. Erode the original image, and then erode that result, and then erode that result also. Show the final result. Does it look like the same type of object as the original?</p>
+
+<p>3C. Take the image you just produced – the result of three consecutive erosions. Now apply three consecutive dilations to it. Show the final result. Is it the same as the original?</p>
+
+<p>3D. Find the boundary of the original image, and then dilate the boundary image. Save the result.</p>
+
+<p>3E. Then take the original image, dilate it once, and then find its boundary. Save the result.</p>
+
+<p>3F. Describe the difference between the two images.</p>
+
