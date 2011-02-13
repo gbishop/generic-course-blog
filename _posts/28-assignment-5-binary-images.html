@@ -36,7 +36,7 @@ date: 2011/02/13 17:15:36
 
 <p><img src="/~gb/Comp116Spring2011/files/BinaryBoundary.png" /></p>
 
-<p>We can use the scrolling functions from the first part of this assignment to determine if a pixel is on the object boundary or not. Suppose that image is I, and LI is the result of the command: <code>LI = scrollLeft(I, 1)</code>.
+<p>We can use the scrolling functions from the first part of this assignment to determine if a pixel is on the object boundary or not. Suppose that image is I, and LI is the result of the command:<br/><code>LI = scrollLeft(I, 1)</code>.</p>
 <p>A pixel, [i,j] is on the right edge of the boundary if and only if I[i,j] is foreground and LI[i,j] is background. You can use the other scrolling functions from part 1 to identify the pixels on the other sides of the boundary. Combine these tests together with the correct logical operator, and you will be able to identify the entire boundary of the object. For this part of the assignment you will write one function that has one input parameter: a binary image, and returns a single value, a new binary image, where only the edge of the original object is in the foreground. (The boundary images you produce will have only black and white intensities.) You should name this function <code>findBoundary</code>.</p>
 
 <p>For this part you should save an image 2.png that shows the boundary of the test image.</p>
