@@ -1,0 +1,15 @@
+---
+title: Fix to A5
+slug: 
+categories: Info
+tags: 
+date: 2011/02/16 19:22:48
+---
+<p>The version of pylab in the Enthought Python Distribution we are using has a bug in the <code>imsave</code> routine we need. I have modified the prototype in A5.zip to use a different function. If you haven't yet started, download the new version from the assignment. If you have already started modify the function <code>save_binary_image</code> to look like this:</p>
+<pre>
+def save_binary_image(name, value):
+    '''Save a binary image to a file'''
+    import scipy
+    scipy.misc.imsave(name, value)
+</pre>
+
