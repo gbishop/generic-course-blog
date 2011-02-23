@@ -1,0 +1,15 @@
+---
+title: A5 Issues 
+slug: 
+categories: Info
+tags: 
+date: 2011/02/23 09:09:48
+---
+<p>I'm seeing a few recurring issues with Assignment 5. I'll address them here.</p>
+
+<ol>
+    <li><b>Global Variables</b> Just say no to global variables. You should <b>NOT</b> be referring to <tt>test_image</tt> in your function bodies. You should only operate on <tt>img</tt> in the function. If you use <tt>test_image</tt> in your function body you won't get the right answer when you try to apply it to other images. I've also seen this mistake with <tt>boundary</tt>; several of you are reusing it in your erode function. You have to compute the boundary of the <tt>img</tt> argument which will be different from test_image in later steps.</li>
+    <li><b>Comparisons to 1 or 0.</b> I've seen several of you doing things like <tt>img == 1</tt> or <tt>img != 0</tt>. Don't do that. There is no need. These things are already True or False.</li>
+    <li><b>Adding Images.</b> I've seen several of you combining images (boundaries for example) using addition. No, you must use <tt>np.logical_or</tt> to combine them. Addition will look sort of like it works but it doesn't do the right thing.</li>
+    <li><b>Clearing Pixels.</b> The trick to clearing all the pixels on the boundary is to use <tt>np.logical_and</tt> with the complement of the boundary image. If the boundary is B and the image is I, then the eroded image <tt>E = np.logical_and(I, ~B)</tt>.</li>
+</ol>
