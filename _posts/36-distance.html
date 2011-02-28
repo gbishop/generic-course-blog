@@ -1,0 +1,90 @@
+---
+title: Transcript Distances 
+slug: 
+categories: Transcripts
+tags: 
+date: 2011/02/28 13:44:14
+---
+<p>Today we talked about find pairs of points with constraints on their distance.</p>
+<p>We started with code like the code shown below to get some random points and display them. </p>
+<pre>
+import numpy as np
+import pylab
+
+np.random.seed(0) # get the same set of numbers every time
+
+p = np.random.randn(100,2)*5
+
+pylab.plot(p[:,0], p[:,1], 'bo') # plot blue dots for each point
+pylab.axis('equal')
+
+pylab.show()
+</pre>
+<p>The we added a distance function.</p>
+<pre>
+def dist(p1, p2):
+    return np.sqrt(np.sum((p1 - p2)**2))
+</pre>
+
+<p>Then we iterated over all the points.</p>
+<pre>
+for i,Pi in enumerate(p):
+    print i, Pi
+</pre>
+<p>For every point we wanted to compute the distance to every other point, so we used a
+nested loop.</p>
+<pre>
+for i,Pi in enumerate(p):
+    print i, Pi
+    for j,Pj in enumerate(p):
+        print i, j+i+1, Pj
+        d = dist(Pi, Pj)
+</pre>
+<p>In this code i goes from 0 through 99 and Pi is set to each successive row in p, then for each of those values, i goes from 0 through 99 and Pj is set to each successive row in p. So as Malia pointed out, we'll get the distance between every point and itself when i == j.</p>
+<p>It is inefficient to compare points to themselves (the distance will always be 0). Furthermore it is inefficient to get the distance between point 1 and 2 and then later get the distance between 2 and 1; they are the same. So we modified the inner loop to only visit points after i.</p>
+<pre>
+for i,Pi in enumerate(p):
+    print i, Pi
+    for j,Pj in enumerate(p[i+1:]):
+        print i, j+i+1, Pj
+        d = dist(Pi, Pj)
+</pre>
+<p>Notice we had to adjust the index value to get it to properly refer to positions in the original array p. Now we just need to add code to test for the specified range of distances and accumulate the list of indices.</p>
+<pre>
+pairs = []
+for i,Pi in enumerate(p):
+    print i, Pi
+    for j,Pj in enumerate(p[i+1:]):
+        print i, j+i+1, Pj
+        d = dist(Pi, Pj)
+        if 1.0 <= d <= 2.0:
+            pairs.append((i,j+i+1))
+</pre>
+<p>Finally here is the entire script with lines added between the pairs.</p>
+<pre>
+import numpy as np
+import pylab
+
+np.random.seed(0) # get the same set of numbers every time
+
+p = np.random.randn(100,2)*5
+
+pylab.plot(p[:,0], p[:,1], 'bo') # plot blue dots for each point
+pylab.axis('equal')
+
+def dist(p1, p2):
+    return np.sqrt(np.sum((p1 - p2)**2))
+    
+pairs = []
+for i,Pi in enumerate(p):
+    print i, Pi
+    for j,Pj in enumerate(p[i+1:]):
+        print i, j+i+1, Pj
+        d = dist(Pi, Pj)
+        if 1.0 &lt;= d &lt;= 2.0:
+            pairs.append((i,j+i+1))
+            pylab.plot((Pi[0],Pj[0]), (Pi[1],Pj[1]), 'r')# draw red lines
+pylab.show()
+    
+print 'pairs=', pairs
+</pre>
