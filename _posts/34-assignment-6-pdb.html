@@ -1,0 +1,95 @@
+---
+title: Assignment 6 Protein Data Bank 
+slug: 
+categories: Assignments
+tags: 
+date: 2011/02/28 9:28:44
+---
+<p><b>Due 25 March 2011</b></p>
+<p>A protein is a molecule that is a sequence of amino acid residues. The <a href="http://www.rcsb.org/pdb"> Protein Data Bank</a> records the 3D structures known for protein molecules (71,415 as of 23 February 2011). Two examples are HIV Protease (<a href="http://www.rcsb.org/pdb/explore.do?structureId=7hvp">7hvp</a> ), an important AIDS drug target, and green fluorescent protein (<a href="http://www.pdb.org/pdb/explore.do?structureId=1GFL">1gfl</a>), which earned its discoverers the <a href="http://nobelprize.org/nobel_prizes/chemistry/laureates/2008/speedread.html">Nobel Prize</a>.  Many types of information are stored in a PDB file; we will be interested only in lines that start with ‘ATOM’, and only in certain columns of these lines.  Their format is described later.</p> 
+
+<img src="http://www.cs.unc.edu/~gb/Comp116Fall2009/wp-content/uploads/2009/10/7HVP.jpg" alt="7hvp" title="7hvp" width="200" height="200" /><img src="http://www.cs.unc.edu/~gb/Comp116Fall2009/wp-content/uploads/2009/10/1GFL.jpg" alt="1gfl" title="1gfl" width="200" height="200" />  
+
+<h3>Task</h3> 
+<ol> 
+   <li><a href="http://www.cs.unc.edu/~gb/Comp116Spring2011/files/A6.zip"> Download this template zip file </a> and unpack it as usual. It will create a folder A6 for you. Inside the A6 folder you'll find the two .pdb files and a script template to get you started. You should edit this script to produce the results requested below. When the TA runs your script it should produce the graphs requested and it should report how many hydrogen bonding pairs there are for each protein.</li> 
+   <li>Write a function <tt>readPDBfile(filename)</tt> that will read the atoms for a protein stored in pdb file whose name is given as the argument.  Your function should return a Python tuple containing 4 values: <tt>(anum, aname, resno, coords)</tt>.
+       <dl> 
+         <dt><tt>anum</tt></dt> 
+         <dd>should be an array with the serial number for each atom.</dd> 
+         <dt><tt>aname</tt></dt> 
+         <dd>should be an array of strings giving the 4-letter atom name for each atom.  The strings in aname should be in upper case.</dd> 
+         <dt><tt>resno</tt></dt> 
+         <dd>array with a residue sequence number for each atom</dd> 
+         <dt><tt>coords</tt></dt> 
+         <dd>an nx3 array with xyz coordinates (in angstroms) for each atom.</dd> 
+        </dl> 
+   </li> 
+   <li> Write a function <tt>drawCA(aname, coords)</tt> that uses <tt>Axes3d.plot</tt> to draw the Calpha backbone of the protein: it should connect atoms with name <tt> ' CA ' </tt> in sequence, and ignore all the other atoms.
+   </li> 
+   <li> Write a function <tt>Hbonds(anum, aname, resno, coords)</tt> that looks for pairs with a Nitrogen (second letter of the name is 'N') and Oxygen (second letter is 'O') atoms whose distance is between 2.6 and 3.2 angstroms, inclusive. Such a pair is deemed to form a hydrogen bond if the residue sequence numbers of these atoms differ by at least 2. Return a list containing the pairs of atom numbers for hydrogen bonding pairs.
+   </li> 
+</ol> 
+
+<h3>Opening and Reading a File</h3> 
+<p>Reading a file such as‘7hvp.pdb’ (for HIV protease) is easy in Python. You can simply say: </p> <pre> 
+for line in file('7hvp.pdb', 'r'):
+    # do something for every line
+</pre> 
+<p> The first argument is a string giving the name of the file. The second argument to the <tt> file </tt> function is a string indicating the file mode. We're using 'r' here because we are reading the file. Other possible values include 'w' for creating a new file to write and 'a' for appending to an existing file.  </p> 
+<p> If the first six characters of the line are 'ATOM ' then that line has interesting information. The numbers and names occupy fixed positions on a line, so you can extract them with indexing and convert them from strings to numbers, if necessary, in your reader.  </p> 
+
+<h3>Other hints</h3> 
+<ol> 
+   <li> Don't modify data files! Your readPDBfile should work on any of the files.  </li> 
+   <li> Your reader returns many variables. To capture them all, you'll have to call it with a line something like this: <tt> a, an, rn, c = readPDBfile('7hvp.pdb')</tt>.</li> 
+   <li> To plot the 3D line drawings requested use the Axes3D object like this:
+   <pre> 
+import pylab
+from mpl_toolkits.myplot3d import Axes3D # already in the template provided
+fig = pylab.figure()
+ax = Axes3D(fig)
+ax.plot(x, y, z) # x, y, and z are 1D arrays giving the coordinates of the points
+</pre> 
+    </li> 
+    <li> String methods .upper() and .lower() can change the case of strings.  </li> 
+    <li> functions int() and float() can be used to change strings to numbers.  </li> 
+    <li> Compare strings with the usual comparison operators we used for numbers.  </li> 
+    <li> Break the problems down into small tasks. When making your loops, think of what has to be done once (like opening the file) and what has to be done repeatedly (like processing the line.) </li> 
+    <li> I get 124 as the number of hydrogen bonding pairs for 7HVP.  </li> 
+</ol> 
+<h3> Format of ATOM records </h3> 
+<p> This is from the documentation of the PDB format on the rcsb web site.  </p> 
+<pre> 
+COLUMNS              DATA TYPE            CONTENTS
+--------------------------------------------------------------------------------
+ 1- 6          Record name              "ATOM "
+ 7 - 11        Integer             Atom serial number.
+13 - 16        Atom                Atom name.
+17             Character           Alternate location indicator.
+18 - 20        Residue name        Residue name.
+22             Character           Chain identifier.
+23 - 26        Integer             Residue sequence number.
+27             AChar               Code for insertion of residues.
+31 - 38        Real(8.3)           Orthogonal coordinates for X in Angstroms.
+39 - 46        Real(8.3)           Orthogonal coordinates for Y in Angstroms.
+47 - 54        Real(8.3)           Orthogonal coordinates for Z in Angstroms.
+55 - 60        Real(6.2)           Occupancy.
+61 - 66        Real(6.2)           Temperature factor (Default = 0.0).
+73 - 76        LString(4)          Segment identifier, left-justified.
+77 - 78        LString(2)          Element symbol, right-justified.
+79 - 80        LString(2)          Charge on the atom.
+</pre> 
+<p>Example: </p> 
+<pre> 
+         1         2         3         4         5         6         7         8
+12345678901234567890123456789012345678901234567890123456789012345678901234567890
+ATOM      1  N   PRO A   1      -3.260   7.392  33.952  1.00 24.47           N
+ATOM      2  CA  PRO A   1      -2.317   6.655  34.795  1.00 22.40           C
+ATOM      3  C   PRO A   1      -0.919   6.658  34.208  1.00 20.82           C
+ATOM      4  O   PRO A   1      -0.802   7.111  33.058  1.00 21.07           O
+ATOM      5  CB  PRO A   1      -2.897   5.256  34.804  1.00 23.12           C
+ATOM      6  CG  PRO A   1      -4.336   5.353  34.377  1.00 24.12           C
+ATOM      7  CD  PRO A   1      -4.607   6.783  33.948  1.00 24.43           C
+</pre> 
+
