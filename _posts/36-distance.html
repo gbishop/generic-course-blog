@@ -40,7 +40,7 @@ for i,Pi in enumerate(p):
         print i, j+i+1, Pj
         d = dist(Pi, Pj)
 </pre>
-<p>In this code i goes from 0 through 99 and Pi is set to each successive row in p, then for each of those values, i goes from 0 through 99 and Pj is set to each successive row in p. So as Malia pointed out, we'll get the distance between every point and itself when i == j.</p>
+<p>In this code i goes from 0 through 99 and Pi is set to each successive row in p, then for each of those values, j goes from 0 through 99 and Pj is set to each successive row in p. So as Malia pointed out, we'll get the distance between every point and itself when i == j.</p>
 <p>It is inefficient to compare points to themselves (the distance will always be 0). Furthermore it is inefficient to get the distance between point 1 and 2 and then later get the distance between 2 and 1; they are the same. So we modified the inner loop to only visit points after i.</p>
 <pre>
 for i,Pi in enumerate(p):
