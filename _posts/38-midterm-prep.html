@@ -1,0 +1,106 @@
+---
+title: Midterm 2 prep 
+slug: 
+categories: Quiz Prep
+tags: 
+date: 2011/03/13 21:01:45
+---
+<ol>
+<li>[8 points each] 5 Functions. Write the values returned from each call below in the blank provided.
+<pre>
+def FA(n):
+    y = [ 0 ]
+    for i in range(n):
+        if i &gt; 10:
+            y.append(i)
+        else:
+            y.append(y[i] + i + 1)
+    return y
+print FA(6) _________________________
+
+def FB(n):
+    r = []
+    i = 1
+    while i &lt; n:
+        r.append(i)
+        i = i + 2
+    return r
+print FB(8)	_________________________
+
+def FC(n):
+    s = 0
+    for i in range(1,n):
+        if i % 3 != 0: # % is the mod operator, remainder after division
+            s = s + i
+    return s
+print FC(5)	_________________________
+
+def FD(n):
+    r = []
+    for x in range(n):
+        for y in range(x+1,n):
+            r.append((x,y))
+    return r
+print FD(4)	_________________________
+
+def FE(n):
+    e = 1
+    f = 0
+    while e &lt; n:
+        e = e+f
+        f = e
+    return e
+print FE(6)	_________________________
+</pre></li>
+<li>[5 points each] What will each of the following print statements produce in the context of the other statements? Write your answer in the blank provided. Write Error for statements that would produce an exception.
+<pre>
+A = np.array([3,2,1,4,7,6])
+D = { 'a':3, 'b':2, 'c':1, 'd':4, 'e':7, 'f':6 }
+L = [ 3, 2, 1, 4, 7, 6 ]
+
+print A[1:3]		a. _________________________
+print D['c']		b. _________________________
+print L[-1]		c. _________________________
+print D[3]		d. _________________________
+print L['a']		e. _________________________
+print A[14]		f. _________________________
+
+D[3] = 5
+print D[3]		g. _________________________
+
+L.append(D)
+L[-1]['g'] = A
+print L[6]['g'][0]	h. _________________________
+</pre></li>
+<li>[4 points each] Explain why each of the following code fragments produce an error message.
+<pre>
+# a
+L = [ 1, 2, 3 ]
+i = 3
+if L[i] and i &lt; len(L):
+    print 'yes'
+
+# b (SyntaxError)
+p1 = np.array([1.1, 2.2, 3.3])
+p2 = np.array([1.2, 2.3, 3.4])
+D = np.sqrt(np.sum((p1-p2)**2)
+if D &gt; 2.6 and D &lt; 3.2:
+    print 'no'
+
+# c
+def double(x):
+    y = 2 * x
+return y
+
+# d
+coords = np.random((10,3))  # a 10 by 3 array of floats
+for i in coords:
+    print coords[i]
+
+# e
+num1 = '123'
+num2 = '456'
+diff = num2 – num1
+
+</pre></li>
+</ol>
