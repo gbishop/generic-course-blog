@@ -74,15 +74,20 @@ print L[6]['g'][0]	h. _________________________
 </pre></li>
 <li>[4 points each] Explain why each of the following code fragments produce an error message.
 <pre>
-# a
+# first some setup for the problems below
 L = [ 1, 2, 3 ]
 i = 3
+p1 = np.array([1.1, 2.2, 3.3])
+p2 = np.array([1.2, 2.3, 3.4])
+coords = np.random((10,3))  # a 10 by 3 array of floats
+num1 = '123'
+num2 = '456'
+
+# a
 if L[i] and i &lt; len(L):
     print 'yes'
 
 # b (SyntaxError)
-p1 = np.array([1.1, 2.2, 3.3])
-p2 = np.array([1.2, 2.3, 3.4])
 D = np.sqrt(np.sum((p1-p2)**2)
 if D &gt; 2.6 and D &lt; 3.2:
     print 'no'
@@ -93,13 +98,10 @@ def double(x):
 return y
 
 # d
-coords = np.random((10,3))  # a 10 by 3 array of floats
 for i in coords:
     print coords[i]
 
 # e
-num1 = '123'
-num2 = '456'
 diff = num2 – num1
 
 </pre></li>
