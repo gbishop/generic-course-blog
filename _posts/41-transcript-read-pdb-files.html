@@ -1,0 +1,402 @@
+---
+title: Transcript Reading PDB Files 
+slug: 
+categories: Transcripts
+tags: 
+date: 2011/03/15 11:20:02
+---
+<p>Script started on Mon 14 Mar 2011 10:51:30 AM EDT</p>
+<pre>
+Enthought Python Distribution -- http://www.enthought.com
+
+Python 2.6.6 |EPD 6.3-2 (32-bit)| (r266:84292, Sep 17 2010, 19:21:04) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 0.10.1 -- An enhanced Interactive Python.
+?         -&gt; Introduction and overview of IPython's features.
+%quickref -&gt; Quick reference.
+help      -&gt; Python's own help system.
+object?   -&gt; Details about 'object'. ?object also works, ?? prints more.
+
+  Welcome to pylab, a matplotlib-based Python environment.
+  For more information, type 'help(pylab)'.
+
+In [1]: cd /home/gb/Dropbox/Comp116/
+/home/gb/Desktop/A5
+
+In [2]: run read.py
+atomNum= []
+atomName= []
+residualNumber= []
+coordinates= []
+
+In [3]: cat read.py
+import numpy as np
+import pylab
+from mpl_toolkits.mplot3d import Axes3D
+
+# I have marked the places where you must insert code with #+++
+
+def readPDBfile(filename):
+    '''read a PDB file, extract the ATOM lines, and return
+       atom number, atom name, residue number, and coords for each'''
+    # build them up in lists because they are cheap to append
+    anum = []
+    aname = []
+    resno = []
+    coords = []
+    # open the file and process each line
+    
+    #+++ your work goes here. You should read the ATOM lines and append the appropriate
+    #+++ fields to anum, aname, resno, and coords
+
+    # convert the results to numpy arrays
+    anum = np.array(anum)
+    aname = np.array(aname)
+    coords = np.array(coords)
+    resno = np.array(resno)
+
+    # return the 4 results
+    return (anum, aname, resno, coords)
+
+atomNum, atomName, residualNumber, coordinates = readPDBfile('foo.pdb')
+
+print 'atomNum=', atomNum
+print 'atomName=', atomName
+print 'residualNumber=', residualNumber
+print 'coordinates=', coordinates
+
+
+
+In [4]: run read.py
+HEADER    SOME JUNK NAME HERE                     14-MAR-11   1GFL              
+
+TITLE     STRUCTURE OF SOMETHING STRANGE
+
+REMARK   1 REFERENCE 1                                                          
+
+ATOM      1  N   ALA A   1     -14.093  60.494  -9.249  1.00 42.10           N  
+
+ATOM      2  CA  ALA A   1     -14.989  61.651  -8.981  1.00 41.80           C  
+
+ATOM      3  C   ALA A   1     -14.809  62.769 -10.006  1.00 41.60           C  
+
+ATOM      4  O   ALA A   1     -15.790  63.397 -10.384  1.00 41.20           O  
+
+ATOM      5  CB  ALA A   1     -14.760  62.190  -7.570  1.00 42.30           C  
+
+ATOM      6  N   SER A   2     -13.573  62.992 -10.472  1.00 41.10           N  
+
+ATOM      7  CA  SER A   2     -13.364  63.821 -11.651  1.00 40.30           C  
+
+ATOM      8  C   SER A   2     -12.245  63.347 -12.591  1.00 39.80           C  
+
+ATOM      9  O   SER A   2     -11.264  62.734 -12.155  1.00 39.50           O  
+
+ATOM     10  CB  SER A   2     -13.236  65.292 -11.216  1.00 39.90           C  
+
+ATOM     11  OG  SER A   2     -12.004  65.880 -11.497  1.00 39.90           O  
+
+ATOM     12  N   LYS A   3     -12.516  63.462 -13.894  1.00 38.90           N  
+
+atomNum= []
+atomName= []
+residualNumber= []
+coordinates= []
+
+In [5]: run read.py
+HEADER    SOME JUNK NAME HERE                     14-MAR-11   1GFL              
+
+TITLE     STRUCTURE OF SOMETHING STRANGE
+
+REMARK   1 REFERENCE 1                                                          
+
+ATOM      1  N   ALA A   1     -14.093  60.494  -9.249  1.00 42.10           N  
+
+ATOM      2  CA  ALA A   1     -14.989  61.651  -8.981  1.00 41.80           C  
+
+ATOM      3  C   ALA A   1     -14.809  62.769 -10.006  1.00 41.60           C  
+
+ATOM      4  O   ALA A   1     -15.790  63.397 -10.384  1.00 41.20           O  
+
+ATOM      5  CB  ALA A   1     -14.760  62.190  -7.570  1.00 42.30           C  
+
+ATOM      6  N   SER A   2     -13.573  62.992 -10.472  1.00 41.10           N  
+
+ATOM      7  CA  SER A   2     -13.364  63.821 -11.651  1.00 40.30           C  
+
+ATOM      8  C   SER A   2     -12.245  63.347 -12.591  1.00 39.80           C  
+
+ATOM      9  O   SER A   2     -11.264  62.734 -12.155  1.00 39.50           O  
+
+ATOM     10  CB  SER A   2     -13.236  65.292 -11.216  1.00 39.90           C  
+
+ATOM     11  OG  SER A   2     -12.004  65.880 -11.497  1.00 39.90           O  
+
+ATOM     12  N   LYS A   3     -12.516  63.462 -13.894  1.00 38.90           N  
+
+atomNum= []
+atomName= []
+residualNumber= []
+coordinates= []
+
+In [6]: cat re
+readPDBfile         recarray            record              reload              resize
+read.py             rec_drop_fields     reduce              remainder           restoredot
+real                recfromcsv          refft               repeat              return
+real_if_close       recfromtxt          refft2              repr                reversed
+rec                 recipe-577349-1.py  refftn              require             
+rec2csv             reciprocal          register_cmap       reshape             
+rec_append_fields   rec_join            relativedelta       residualNumber      
+
+In [6]: cat rea
+readPDBfile    read.py        real           real_if_close  
+
+In [6]: cat read.py
+import numpy as np
+import pylab
+from mpl_toolkits.mplot3d import Axes3D
+
+# I have marked the places where you must insert code with #+++
+
+def readPDBfile(filename):
+    '''read a PDB file, extract the ATOM lines, and return
+       atom number, atom name, residue number, and coords for each'''
+    # build them up in lists because they are cheap to append
+    anum = []
+    aname = []
+    resno = []
+    coords = []
+    # open the file and process each line
+    
+    for line in file(filename, 'r'):
+        if line[0:6] == 'ATOM  ':
+            print line
+        
+    #+++ your work goes here. You should read the ATOM lines and append the appropriate
+    #+++ fields to anum, aname, resno, and coords
+
+    # convert the results to numpy arrays
+    anum = np.array(anum)
+    aname = np.array(aname)
+    coords = np.array(coords)
+    resno = np.array(resno)
+
+    # return the 4 results
+    return (anum, aname, resno, coords)
+
+atomNum, atomName, residualNumber, coordinates = readPDBfile('foo.pdb')
+
+print 'atomNum=', atomNum
+print 'atomName=', atomName
+print 'residualNumber=', residualNumber
+print 'coordinates=', coordinates
+
+
+
+In [7]: run read.py
+ATOM      1  N   ALA A   1     -14.093  60.494  -9.249  1.00 42.10           N  
+
+ATOM      2  CA  ALA A   1     -14.989  61.651  -8.981  1.00 41.80           C  
+
+ATOM      3  C   ALA A   1     -14.809  62.769 -10.006  1.00 41.60           C  
+
+ATOM      4  O   ALA A   1     -15.790  63.397 -10.384  1.00 41.20           O  
+
+ATOM      5  CB  ALA A   1     -14.760  62.190  -7.570  1.00 42.30           C  
+
+ATOM      6  N   SER A   2     -13.573  62.992 -10.472  1.00 41.10           N  
+
+ATOM      7  CA  SER A   2     -13.364  63.821 -11.651  1.00 40.30           C  
+
+ATOM      8  C   SER A   2     -12.245  63.347 -12.591  1.00 39.80           C  
+
+ATOM      9  O   SER A   2     -11.264  62.734 -12.155  1.00 39.50           O  
+
+ATOM     10  CB  SER A   2     -13.236  65.292 -11.216  1.00 39.90           C  
+
+ATOM     11  OG  SER A   2     -12.004  65.880 -11.497  1.00 39.90           O  
+
+ATOM     12  N   LYS A   3     -12.516  63.462 -13.894  1.00 38.90           N  
+
+atomNum= []
+atomName= []
+residualNumber= []
+coordinates= []
+
+In [8]: run read.py
+atomNum= [ 1  2  3  4  5  6  7  8  9 10 11 12]
+atomName= []
+residualNumber= []
+coordinates= []
+
+In [9]: cat read.py
+import numpy as np
+import pylab
+from mpl_toolkits.mplot3d import Axes3D
+
+# I have marked the places where you must insert code with #+++
+
+def readPDBfile(filename):
+    '''read a PDB file, extract the ATOM lines, and return
+       atom number, atom name, residue number, and coords for each'''
+    # build them up in lists because they are cheap to append
+    anum = []
+    aname = []
+    resno = []
+    coords = []
+    # open the file and process each line
+    
+    for line in file(filename, 'r'):
+        if line[0:6] == 'ATOM  ':
+            serial_number = int(line[6:11])
+            anum.append(serial_number)
+        
+    #+++ your work goes here. You should read the ATOM lines and append the appropriate
+    #+++ fields to anum, aname, resno, and coords
+
+    # convert the results to numpy arrays
+    anum = np.array(anum)
+    aname = np.array(aname)
+    coords = np.array(coords)
+    resno = np.array(resno)
+
+    # return the 4 results
+    return (anum, aname, resno, coords)
+
+atomNum, atomName, residualNumber, coordinates = readPDBfile('foo.pdb')
+
+print 'atomNum=', atomNum
+print 'atomName=', atomName
+print 'residualNumber=', residualNumber
+print 'coordinates=', coordinates
+
+
+
+In [10]: 
+
+In [11]: int('     1')
+Out[11]: 1
+
+In [12]: cat read.py
+import numpy as np
+import pylab
+from mpl_toolkits.mplot3d import Axes3D
+
+# I have marked the places where you must insert code with #+++
+
+def readPDBfile(filename):
+    '''read a PDB file, extract the ATOM lines, and return
+       atom number, atom name, residue number, and coords for each'''
+    # build them up in lists because they are cheap to append
+    anum = []
+    aname = []
+    resno = []
+    coords = []
+    # open the file and process each line
+    
+    for line in file(filename, 'r'):
+        if line[0:6] == 'ATOM  ':
+            serial_number = int(line[6:11])
+            anum.append(serial_number)
+            atom_name = line[12:16]
+            aname.append(atom_name)
+        
+    #+++ your work goes here. You should read the ATOM lines and append the appropriate
+    #+++ fields to anum, aname, resno, and coords
+
+    # convert the results to numpy arrays
+    anum = np.array(anum)
+    aname = np.array(aname)
+    coords = np.array(coords)
+    resno = np.array(resno)
+
+    # return the 4 results
+    return (anum, aname, resno, coords)
+
+atomNum, atomName, residualNumber, coordinates = readPDBfile('foo.pdb')
+
+print 'atomNum=', atomNum
+print 'atomName=', atomName
+print 'residualNumber=', residualNumber
+print 'coordinates=', coordinates
+
+
+
+In [13]: run read.py
+atomNum= [ 1  2  3  4  5  6  7  8  9 10 11 12]
+atomName= [' N  ' ' CA ' ' C  ' ' O  ' ' CB ' ' N  ' ' CA ' ' C  ' ' O  ' ' CB '
+ ' OG ' ' N  ']
+residualNumber= []
+coordinates= []
+
+In [14]: cat read.py
+import numpy as np
+import pylab
+from mpl_toolkits.mplot3d import Axes3D
+
+# I have marked the places where you must insert code with #+++
+
+def readPDBfile(filename):
+    '''read a PDB file, extract the ATOM lines, and return
+       atom number, atom name, residue number, and coords for each'''
+    # build them up in lists because they are cheap to append
+    anum = []
+    aname = []
+    resno = []
+    coords = []
+    # open the file and process each line
+    
+    for line in file(filename, 'r'):
+        if line[0:6] == 'ATOM  ':
+            serial_number = int(line[6:11])
+            anum.append(serial_number)
+            atom_name = line[12:16].upper()
+            aname.append(atom_name)
+            residue_sequence_number = int(line[22:26])
+            resno.append(residue_sequence_number)
+            x = float(line[30:38])
+            y = float(line[38:46])
+            z = float(line[46:54])
+            coords.append([x, y, z])
+        
+    #+++ your work goes here. You should read the ATOM lines and append the appropriate
+    #+++ fields to anum, aname, resno, and coords
+
+    # convert the results to numpy arrays
+    anum = np.array(anum)
+    aname = np.array(aname)
+    coords = np.array(coords)
+    resno = np.array(resno)
+
+    # return the 4 results
+    return (anum, aname, resno, coords)
+
+atomNum, atomName, residualNumber, coordinates = readPDBfile('foo.pdb')
+
+print 'atomNum=', atomNum
+print 'atomName=', atomName
+print 'residualNumber=', residualNumber
+print 'coordinates=', coordinates
+
+
+
+In [15]: run read.py
+atomNum= [ 1  2  3  4  5  6  7  8  9 10 11 12]
+atomName= [' N  ' ' CA ' ' C  ' ' O  ' ' CB ' ' N  ' ' CA ' ' C  ' ' O  ' ' CB '
+ ' OG ' ' N  ']
+residualNumber= [1 1 1 1 1 2 2 2 2 2 2 3]
+coordinates= [[-14.093  60.494  -9.249]
+ [-14.989  61.651  -8.981]
+ [-14.809  62.769 -10.006]
+ [-15.79   63.397 -10.384]
+ [-14.76   62.19   -7.57 ]
+ [-13.573  62.992 -10.472]
+ [-13.364  63.821 -11.651]
+ [-12.245  63.347 -12.591]
+ [-11.264  62.734 -12.155]
+ [-13.236  65.292 -11.216]
+ [-12.004  65.88  -11.497]
+ [-12.516  63.462 -13.894]]
+
+</pre>
