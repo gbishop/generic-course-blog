@@ -1,0 +1,37 @@
+---
+title: Towers of Hanoi 
+slug: 
+categories: Transcripts
+tags: 
+date: 2011/03/28 12:18:07
+---
+<p>Today we worked through how to solve the Towers of Hanoi puzzle. First we wrote some simple functions to handle different numbers of disks.</p>
+<pre>
+def tower1(From, To, Other):
+    print 'Move disk from', From, 'to', To
+
+def tower2(From, To, Other):
+    tower1(From, Other, To)
+    tower1(From, To, Other)
+    tower1(Other, To, From)
+
+def tower3(From, To, Other):
+    tower2(From, Other, To)
+    tower1(From, To, Other)
+    tower2(Other, To, From)
+</pre>
+<p>We could call this function like this:</p>
+<pre>
+tower3('Top', 'Right', 'Left')
+</pre>
+
+<p>Then we realized we could write one <b>recursive</b> function instead of many very similar functions.</p>
+<pre>
+def tower(N, From, To, Other):
+    if N == 1:
+        print 'Move disk from', From, 'to', To
+    else:
+        tower(N-1, From, Other, To)
+        tower(1, From, To, Other)
+        tower(N-1, Other, To, From)
+</pre>
