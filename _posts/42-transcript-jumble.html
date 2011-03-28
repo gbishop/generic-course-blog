@@ -6,3 +6,18 @@ tags:
 date: 2011/03/23 10:33:52
 ---
 <p>Today we will write a jumble solver. If you want to play along, here is a <a href="http://gb.cs.unc.edu/tmp/words">list of words</a> to use.</p>
+<pre>
+import time
+
+Letters = raw_input('Enter your jumbled word. ')
+Letters = sorted(list(Letters.lower().strip()))
+
+start = time.time()
+for line in file('/usr/share/dict/words', 'r'):
+    word = line.strip()
+    t = sorted(list(word.lower()))
+    if Letters == t:
+        print word
+done = time.time()
+print 'it took', done-start, 'seconds'
+</pre>
