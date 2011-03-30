@@ -1,0 +1,165 @@
+---
+title: Transcript Capture 
+slug: 
+categories: Transcripts
+tags: 
+date: 2011/03/30 14:12:51
+---
+<p>Today we talked about how to time a subject's typing.</p>
+<pre>
+In [3]: cd /home/gb/Dropbox/Comp116/
+/home/gb/Dropbox/Comp116
+
+In [4]: run collect.py
+Please type nownow
+Please type isis
+Please type thethis
+that was not correct
+Please type timetime
+Please type forfor
+Please type allall
+Please type goodgood
+Please type menmen
+Please type toto
+Please type comecome
+Please type toto
+Please type thethe
+Please type aidaid
+Please type ofof
+Please type theirtheir
+Please type countrycountry
+
+In [5]: run collect.py
+Please type to: to
+Please type to: to
+Please type come: come
+Please type time: time
+Please type the: the
+Please type good: good
+Please type of: of
+Please type for: for
+Please type country: country
+Please type now: now
+Please type their: their
+Please type aid: aid
+Please type is: is
+Please type all: all
+Please type men: men
+Please type the: the
+
+In [6]: run collect.py
+Please type the: the
+Please type men: men
+Please type of: of
+Please type for: for
+Please type aid: aid
+hit return when you are ready to proceed. 
+Please type the: the
+Please type country: country
+Please type now: now
+Please type is: is
+Please type to: to
+hit return when you are ready to proceed. 
+Please type come: come
+Please type to: to
+Please type good: good
+Please type time: time
+Please type their: their
+hit return when you are ready to proceed. 
+Please type all: all
+[('the', 1.7846550941467285), ('men', 1.1236879825592041), ('of', 0.94420218467712402), ('for', 1.3720059394836426), ('aid', 1.1314918994903564), ('the', 1.5920560359954834), ('country', 1.8519830703735352), ('now', 1.2042407989501953), ('is', 0.85405898094177246), ('to', 1.0496289730072021), ('come', 1.5965278148651123), ('to', 1.1000330448150635), ('good', 1.3521490097045898), ('time', 1.3514699935913086), ('their', 1.3522019386291504), ('all', 1.3037700653076172)]
+
+In [7]: cat collect.py
+import time
+import random
+
+words = 'now is the time for all good men to come to the aid of their country'.split()
+random.shuffle(words)
+
+data = []
+for i, word in enumerate(words):
+    t = ''
+    while t != word:
+        start = time.time()
+        t = raw_input('Please type ' + word + ': ')
+        done = time.time()
+        if word != t:
+            print 'that was not correct'
+    data.append((word, done-start))
+    if i % 5 == 4:
+        raw_input('hit return when you are ready to proceed. ')
+        
+print data
+
+
+In [8]: run collect.py
+Please type their: theirrr
+that was not correct
+Please type their: foo
+that was not correct
+Please type their: bar
+that was not correct
+Please type their: their
+Please type the: the
+Please type is: isn
+that was not correct
+Please type is: is
+Please type the: ERROR: An unexpected error occurred while tokenizing input
+The following traceback may be corrupted or invalid
+The error message is: ('EOF in multi-line statement', (186, 0))
+
+---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+
+In [9]: 
+
+In [10]: run collect.py
+Please type ogdo: good
+Please type all: all
+Please type ot: to
+Please type ofr: for
+Please type het: the
+hit return when you are ready to proceed. 
+Please type ceom: come
+Please type tmie: time
+Please type nem: men
+Please type teh: the
+Please type dai: aid
+hit return when you are ready to proceed. 
+Please type nutorcy: country
+Please type iethr: either
+that was not correct
+Please type rteih: their
+Please type nwo: now
+Please type is: is
+Please type to: to
+hit return when you are ready to proceed. 
+Please type of: of
+[('good', 5.7192268371582031), ('all', 2.6721539497375488), ('to', 1.7318601608276367), ('for', 1.4992449283599854), ('the', 1.3685669898986816), ('come', 1.9244859218597412), ('time', 1.8757960796356201), ('men', 2.032120943069458), ('the', 1.5472650527954102), ('aid', 2.6717839241027832), ('country', 3.6479709148406982), ('their', 3.8679509162902832), ('now', 1.9403278827667236), ('is', 2.4038529396057129), ('to', 1.3321161270141602), ('of', 1.4677169322967529)]
+
+In [11]: cat collect.py
+import time
+import random
+
+words = 'now is the time for all good men to come to the aid of their country'.split()
+random.shuffle(words)
+
+data = []
+for i, word in enumerate(words):
+    t = ''
+    while t != word:
+        prompt = list(word)
+        random.shuffle(prompt)
+        prompt = ''.join(prompt)
+        start = time.time()
+        t = raw_input('Please type ' + prompt + ': ')
+        done = time.time()
+        if word != t:
+            print 'that was not correct'
+    data.append((word, done-start))
+    if i % 5 == 4:
+        raw_input('hit return when you are ready to proceed. ')
+        
+print data
+
+</pre>
