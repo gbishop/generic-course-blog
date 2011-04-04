@@ -1,0 +1,36 @@
+---
+title: Quiz Prep 
+slug: 
+categories: Quiz Prep
+tags: 
+date: 2011/04/04 09:34:38
+---
+<p>Here are some programming challenges to get you ready for the Quiz on Wednesday 6 April. None of the problems on the quiz will be this hard but you may see problems like this on the final exam.</p>
+<pre>
+1. Write an expression to compute the sum of the integers from -5 through 15 inclusive using numpy.
+
+
+
+
+
+2. Write a loop to compute the sum of the integers from -5 through 15 inclusive without using numpy. 
+
+
+
+
+3. Given a numpy vector V, subtract its mean and divide by its standard deviation leaving the result in R. 
+
+
+
+
+4. What famous constant is this code approximating? (try it at the command prompt then work out what it is doing).
+
+import numpy as np
+
+xy = np.random.rand(10000000, 2) * 2 - 1
+xy2 = xy ** 2
+z = xy2.sum(1)
+count = np.sum(z < 1)
+est = 4.0 * count / 1e7
+print 'estimate is', est
+</pre>
