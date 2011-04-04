@@ -1,0 +1,47 @@
+---
+title: Assignment 7 Helps 
+slug: 
+categories: Info
+tags: 
+date: 2011/04/04 12:11:18
+---
+<p>Here are some short code fragments to help you with Assignment 7.</p>
+<p>Write data to a file.</p>
+<pre>
+# get the subject id
+subj = raw_input('Enter subject id: ')
+
+# construct a name for this data set
+file_name = 'data/' + subj + '.txt'
+# create a file object with the given name
+fp = file(file_name, 'w')
+
+# data collection code goes here
+for i in range(5):
+    word = raw_input('enter word: ')
+    # suppose I wanted to record the number and the word
+    print &gt;&gt;fp, str(i) + '|' + word
+
+fp.close() # close the file object and make sure all data is written
+
+</pre>
+<p>Make a prompt appear and disappear after a short time.<p>
+<pre>
+import sys
+import time
+
+def promptThenDisappear(prompt, timeToDisplay):
+    # write the prompt
+    sys.stdout.write(prompt)
+    # make sure the user can see it
+    sys.stdout.flush()
+    # wait for the specified time
+    time.sleep(timeToDisplay)
+    # erase it
+    sys.stdout.write('\r' + ' '*len(prompt) + '\n')
+    sys.stdout.flush()
+
+# example of using it
+
+promptThenDisappear('test', 2)
+</pre>
