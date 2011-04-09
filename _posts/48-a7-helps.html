@@ -53,4 +53,47 @@ def stringSimilarity(a, b):
     return sm.ratio()
 </pre>
 
+<p>Change the color of text in the console.</p>
+<pre>
+import os
+import sys
 
+if os.name == 'nt':
+    # windows version
+    colors = {
+        'black': 0,
+        'blue': 1,
+        'green': 2,
+        'cyan': 3,
+        'red': 4,
+        'magenta': 5,
+        'yellow': 6,
+        'white': 7
+    }
+    import ctypes
+    handle = ctypes.windll.kernel32.GetStdHandle(-11)
+    def setColor(textColor, backgroundColor):
+        color = colors[backgroundColor]&lt;&lt;4 | colors[textColor] | 0x88
+        r = ctypes.windll.kernel32.SetConsoleTextAttribute(handle, color)
+
+else:        
+    # non windows version
+    colors = {
+        'black': 0,
+        'red': 1,
+        'green': 2,
+        'yellow': 3,
+        'blue': 4,
+        'magenta': 5,
+        'cyan': 6,
+        'white': 7
+    }
+    def setColor(textColor, backgroundColor):
+        color = '\x1b[3%d;4%d;1m' % (colors[textColor], colors[backgroundColor])
+        sys.stdout.write(color)
+
+# examples of using it
+
+# setColor('red', 'green')
+# print 'this is red text on green background'
+</pre>
