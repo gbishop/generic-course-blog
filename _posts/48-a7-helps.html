@@ -97,3 +97,31 @@ else:
 # setColor('red', 'green')
 # print 'this is red text on green background'
 </pre>
+
+<p>Display a picture for a short time.</p>
+<pre>
+import numpy as np
+import pylab
+
+# read the image. You could read several of course. You'll need to change the name below
+pic = pylab.imread('mypic.jpg')
+
+# create a black image the same size to use for hiding
+black = np.zeros_like(pic)
+
+# turn on interactive mode so the plot will update while the script is running
+pylab.ion()
+
+# show the picture
+pylab.imshow(pic)
+
+# wait for 1/2 second. Change the value of timeout to increase or decrease the time
+pylab.ginput(timeout=0.5)
+
+# display the black image instead
+pylab.imshow(black)
+
+# force the black image to display
+pylab.draw()
+
+</pre>
