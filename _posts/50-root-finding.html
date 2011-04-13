@@ -1,7 +1,7 @@
 ---
 title: Root Finding
 date: 2011/04/11 12:30:00
-categories: Transcript
+categories: Transcripts
 tags:
 ---
 <p>Today we talked about finding the zeros (roots) of a function.</p>
@@ -13,9 +13,9 @@ def f(x):
 <p>In class we came up with a function like this:</p>
 <pre>
 def trapZero(f, x0, x1):
-    if f(x0) > 0:
+    if f(x0) &gt; 0:
         x0,x1 = x1,x0 # swap so f(x0) is the negative one
-    while abs(x0 - x1) > 1e-6:
+    while abs(x0 - x1) &gt; 1e-6:
         xm = (x0 + x1) / 2.0 # compute the midpoint
         fm = f(xm) # evaluate the function at the midpoint
         if np.sign(fm) == -1: # close in on the root from the negative side
