@@ -1,0 +1,91 @@
+---
+title: Analysis Example
+date: 2011/04/14 08:02:51
+categories: Tips
+tags:
+---
+<p>Here is a complete example of an analysis script. The data file consists of lines like these with the prompt to type, the hand to use, and the time it took separated by spaces. The lines look like this:</p>
+<pre>
+xbafkn 0 1.2505370144
+ugqrsmx 1 1.37932912815
+jegzf 0 1.09309074306
+hrpi 1 0.842401438712
+bezud 0 1.10971105873
+</pre>
+<p>These data are stored in a folder named a7data in files with names like subjaa, subjab, etc.</p>
+<p>This script shows how I might read those data, analyze them, and produce a simple graph.</p>
+<pre>
+import numpy as np
+import pylab
+import os
+
+lengths = [] # lengths of each prompt
+hands = []   # hand used to type it
+times = []   # time required
+
+# os.listdir will return a list of the names of the files in a folder
+# for each filename in the folder
+for fname in os.listdir('a7data'):
+    # open the file for reading
+    fp = file('a7data/' + fname, 'r')
+    # for each line in the file
+    for line in fp:
+        # split it into the three fields
+        prompt, hand, time = line.split()
+        # convert the hand to an int
+        hand = int(hand)
+        # and the time to a float
+        time = float(time)
+        # I'm only interested in the length of the prompt for my analysis
+        length = len(prompt)
+        # append them to the lists
+        lengths.append(length)
+        hands.append(hand)
+        times.append(time)
+# make numpy arrays out of the lists
+lengths = np.array(lengths)
+hands = np.array(hands)
+times = np.array(times)
+
+# create Boolean arrays for the hands
+left = hands == 0
+right = hands == 1
+
+# plot the times for left and right as points
+pylab.plot(lengths[left], times[left], 'bo',
+    lengths[right], times[right], 'ro')
+
+# fit a line equation to all the data, should have done the left and right separately
+A = np.array([lengths, np.ones_like(lengths)]).T
+B = np.array([times]).T
+
+soln = np.linalg.lstsq(A,B)
+X = soln[0]
+
+# plot the best fit line
+R = np.arange(3,8)
+pylab.plot(R, X[0]*R + X[1], 'r')
+
+# print the coefficients of the best fit line
+print X
+
+pylab.show()
+</pre>
+<p>It has come to my attention that some of you wrote lists of tuples to your data files. These files are pretty hard to take apart yourself but python has some help for you. The <code>eval</code> function will take a string and treat it like python source code. To make it more concrete, suppose my file is named data.txt and the content looks like this:</p>
+<pre>
+[('cow',1.34),('dog',1.5)]
+</pre>
+<p>I could read it like this:</p>
+<pre>
+
+# open the file, of course I could do this in a loop as in the above example
+fp = file('data.txt', 'r')
+# read all the content of the file into a string variable named bytes
+bytes = fp.read()
+# convert that string into a python list
+data = eval(bytes)
+</pre>
+<p>Now data is a list of tuples of strings and floats.</p>
+
+
+
