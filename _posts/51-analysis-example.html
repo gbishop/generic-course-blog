@@ -26,6 +26,9 @@ times = []   # time required
 # os.listdir will return a list of the names of the files in a folder
 # for each filename in the folder
 for fname in os.listdir('a7data'):
+    # for mac users
+    if fname.startswith('.'):
+        continue
     # open the file for reading
     fp = file('a7data/' + fname, 'r')
     # for each line in the file
