@@ -1,0 +1,244 @@
+---
+title: Example Final Examle
+date: 2011/04/25 08:00:56
+categories: Quiz Prep
+tags:
+---
+<p>Here is an example of the sorts of questions I may ask on the final exam. The final exam will not
+be limited to the scope of this sample. Anything we have discussed all semester is fair game. Of course,
+the material I emphasized is more likely to appear on the final.</p>
+
+<pre>
+1. The SouthEastern regional climate center,
+http://www.dnr.state.sc.us/climate/sercc/, has historical weather data
+from many weather stations. Here is some sample data for the Chapel
+Hill station, including the maximum and minimum temperatures for each
+day of the year, averaged over 30 years (1961 through 1990).
+
+&lt;TITLE&gt; CHAPEL HILL 2 W, NORTH CAROLINA 30 Year Daily Summary &lt;/TITLE&gt;
+&lt;BODY BGCOLOR="#FFFFFF"&gt;&lt;H1&gt; CHAPEL HILL 2 W, NORTH CAROLINA &lt;/H1&gt;
+&lt;H3&gt;30 Year Daily Temperature and Precipitation Summary &lt;/H3&gt;
+&lt;PRE&gt;
+ STATION 311677 AVERAGES FROM AVAILABLE YEARS IN PERIOD 1961 TO 1990 .
+
+ DOY  MON DY  TMAX  #YRS  TMIN  #YRS PRECIP #YRS SD MAX SD MIN
+    1  1  1   49.1  30.   26.9  30.  0.116  30. 10.895 10.164
+    2  1  2   49.0  30.   26.8  30.  0.115  30. 10.868 10.169
+    3  1  3   48.8  30.   26.7  30.  0.115  30. 10.864 10.104
+•
+•
+•
+  360 12 25   50.9  30.   28.4  30.  0.121  30. 10.816 10.073
+  361 12 26   50.6  30.   28.2  29.  0.121  30. 10.799 10.042
+  362 12 27   50.4  29.   28.0  30.  0.118  30. 10.831 10.013
+  363 12 28   50.0  30.   27.7  30.  0.120  30. 10.831 10.056
+  364 12 29   49.8  30.   27.5  30.  0.118  30. 10.878 10.154
+  365 12 30   49.5  30.   27.3  30.  0.118  30. 10.961 10.219
+  366 12 31   49.3  30.   27.1  30.  0.117  30. 10.939 10.161
+&lt;/PRE&gt;
+
+a) Assume for these first 4 subparts that you have read the max and
+min temperatures into column vectors TMAX and TMIN and the standard
+deviations for max and min temperatures into column vectors SDMAX and
+SDMIN. (Standard deviation is a statistic that tries to capture how
+far we would expect to find the temperature from the day's max or
+min. E.g., if max temperature is normally distributed, we expect that
+90% of the days are less than 1.28 standard distributions above TMAX.)
+Each vector has the same number of rows.
+
+Write Python expressions that will do the following.
+
+i. Plot the average temperature maxima (red) and minima (blue)
+
+ii. Determine the highest maximum temperature.
+
+iii. Determine which day (1 – 366) has the highest maximum temperature.
+
+iv. Determine, for each day, the temperature range between max and
+min.  (E.g., for day 360, which is Dec 25, the range is 22.5 degrees.)
+
+b) Complete function tempExceptional which, given today's day number
+(daynum) and temperature (temp), should determine if temp is within
+the historical max/min range for that day, and if not, determine how
+many standard deviations above the historical max for that day, or how
+many standard deviations below the historical min for that day.
+
+Set result = 0 for normal, result = a positive number of standard
+deviations if above the max, or result = a negative number of standard
+deviations if below the min.
+
+def tempExceptional(daynum, temp, TMAX, TMIN, SDMAX, SDMIN):
+    # daynum = the day number today (1 - 366) 
+    # temp = the current temperature in degrees 
+    # TMAX, TMIN, SDMAX, SDMIN column vectors as in a).
+
+
+2. Write functions to solve at least 3 of the following 5 challenges.
+
+a) Function twomin(x) should take a list of numbers in a vector x,
+find the two smallest, and return them in a list result being careful
+to properly handle duplicated items in the list.
+
+b) Write a function dist(p,q) that takes a point p represented as a
+1×d row vector, and a list of n points q, represented as an n×d
+matrix, and returns an n×1 vector of the distance from point p to each
+point q[i,:].
+
+c) Write a function pairdist(p,q) that takes two matrices, say m×d and
+n×d, and returns the m×n matrix of distances between all pairs of
+rows. You may use the function dist() from b), even if you choose not
+to write that one.
+
+d) isPrime(n) returns True if the number N is prime, False otherwise.
+
+e) isPalindrome(s) returns True if s is a palindrome (same read left
+to right as right to left), False otherwise.
+
+3. Multiple choice (circle the roman numerals for all that apply)
+
+a) If A is a 4x6 matrix, in assignment A[2:3,4:5] = B; the value of B
+can be
+i. []
+ii. scalar
+iii. a 2x2 matrix
+iv. a 4x1 matrix
+v. a 4x6 matrix
+
+b) If M is a 3x2 matrix, the value of M[:] is a 
+i. error
+ii. 3x2 matrix
+iii. 2x3 matrix
+iv. row vector 1x6
+v. column vector 6x1
+
+c)The differences between for and while loops include:
+
+i. You will always use a colon : in a for loop
+ii. A while loop can run forever, but a for loop cannot.
+iii. A for loop defines a variable; a while loop may not even need a variable.  
+iv. A for loop executes the indented statements at least once; a while loop 
+may never execute the statements.
+
+d) The differences between floating point and integer numbers include:
+
+i. floats cannot be used as array indicies.
+ii. integer arithmetic is exact, floating point is approximate.
+iii. the exponentiation operator ** cannot be used on integers.
+iv. the range function only works on integers.
+
+4. Floating point numbers are unlike the real numbers we study in
+mathematics. They approximate the behavior of real numbers reasonably
+well but they differ in important ways that mostly result from their
+limited precision. For example X+1 == X is never true for real numbers
+but is sometimes true for floating point. Show a fragment of Python
+code that finds the smallest X such that X+1 == X.
+
+5. The following 3 mystery functions inefficiently implement methods
+that are provided by numpy arrays. Give me the names of the
+corresponding functions from numpy.
+
+def F1(A):
+    if len(A) == 1:
+        return A[0]
+    else:
+        t = F1(A[1:])
+        if t &gt; A[0]:
+            return t
+        else:
+            return A[0]
+
+def F2(A):
+    t = 0
+    for x in A:
+        t += x
+    return t
+
+def F3(A):
+    s = 0
+    for x in A:
+        s += 1
+    return s
+
+6. Show how to create the following arrays.
+
+a. array([[ 0,  1,  2,  3],
+          [ 4,  5,  6,  7],
+          [ 8,  9, 10, 11]])
+
+b. array([[ 0,  4,  8],
+          [ 1,  5,  9],
+          [ 2,  6, 10],
+          [ 3,  7, 11]])
+
+c. array([0, 1, 4, 9, 16, ..., n**2]) for any positive integer value of N
+
+d. A 12x12 checkerboard pattern with alternating 0's and 1's. Like
+this 4x4 version only bigger.
+
+[ [ 0, 1, 0, 1],
+  [ 1, 0, 1, 0],
+  [ 0, 1, 0, 1],
+  [ 1, 0, 1, 0] ]
+
+e. array([[ 0.,  0.,  0.,  0.,  0.],
+          [ 0.,  1.,  1.,  1.,  0.],
+          [ 0.,  1.,  0.,  1.,  0.],
+          [ 0.,  1.,  1.,  1.,  0.],
+          [ 0.,  0.,  0.,  0.,  0.]])
+
+
+7. Suppose you are given an array named W with the birth weight of N babies.
+Use numpy array methods to find the following.
+
+a. the weight of the heaviest baby.
+
+b. the mean weight of all the babies.
+
+c. the median weight for all the babies.
+
+d. the standard deviation of the weights.
+
+e. the mean of the weight of babies that were heavier than 3 pounds.
+
+
+8. Mark the following statements with the data types they produce. The
+first is done for you as an example. Mark X for error, otherwise mark
+with an uppercase letter for the basic type and a lowercase letter for
+the shape.
+
+F float
+I integer
+B boolean
+S string
+
+s scalar
+v vector
+m matrix
+
+X error
+
+Assume these values for the variables: x = np.arange(4.0); y = x**2; z = np.eye(4);
+
+F  v  a) x+y
+__ __ b) y.sum()
+__ __ c) z*z
+__ __ d) np.dot(x,z)
+__ __ e) x == np.sqrt(y)
+__ __ f) y &lt; 5
+__ __ g) y[x&gt;2]
+__ __ h) float('3.1415')
+__ __ i) str(1.5)
+
+9. What are the differences between the return statement and the print statement?
+
+10. A newbie programmer has written the following code and is
+surprised that it doesn't terminate after printing the 10 lines but
+just keeps on printing ever larger numbers. Explain what is going
+wrong.
+
+i = 0
+while i != 1:
+    i = i + 0.1
+    print i
+
+</pre>
