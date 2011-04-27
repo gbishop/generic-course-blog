@@ -1,0 +1,72 @@
+---
+title: Java Example
+date: 2011/04/27 09:39:11
+categories: Info
+tags:
+---
+<p>The next course in Computer Science is Comp 401 wherein you will learn Java. You already know how to <b>program</b> so learning Java will mostly be a matter of learning the way to <i>say</i> things in that language. Here is a brief example so we can talk about the key differences.</p>
+
+<pre>
+public class FindLargestSmallestNumber {
+ 
+    public static void main(String[] args) {
+ 
+        //array of 10 numbers
+        int numbers[] = new int[]{32,43,53,54,32,65,63,98,43,23};
+ 
+        //assign first element of an array to largest and smallest
+        int smallest = numbers[0];
+        int largest = numbers[0];
+ 
+        for(int i=1; i&lt; numbers.length; i++)
+        {
+            if(numbers[i] &gt; largest)
+                largest = numbers[i];
+            else if (numbers[i] &lt; smallest)
+                smallest = numbers[i];
+ 
+        }
+ 
+        System.out.println("Largest Number is : " + largest);
+        System.out.println("Smallest Number is : " + smallest);
+    }
+}
+ 
+/*
+Output of this program would be
+Largest Number is : 98
+Smallest Number is : 23
+*/
+
+</pre>
+
+<p>In Python using numpy we could write it this way.</p>
+
+<pre>
+import numpy as np
+
+numbers = np.array([32,43,53,54,32,65,63,98,43,23])
+
+print 'Largest Number is :", numbers.max()
+print 'Smallest Number is :", numbers.min()
+</pre>
+
+<p>That seems almost like cheating because its so easy. So let's look at the parallel example in pure Python.</p>
+
+
+<pre>
+numbers = [32,43,53,54,32,65,63,98,43,23]
+
+smallest = numbers[0]
+largest = numbers[0]
+
+for number in numbers[1:]:
+    if number &lt; smallest:
+        smallest = number;
+    if number &gt; largest:
+        largest = number
+
+print 'Largest Number is :", largest
+print 'Smallest Number is :", smallest
+</pre>
+
