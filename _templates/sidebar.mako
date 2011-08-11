@@ -22,12 +22,6 @@
               </p>
           </aside>
           <aside class="widget">
-            <form action="search.html">
-              <input type="search" placeholder="Search..." name="q" />
-              <input type="submit" value="Search..." />
-            </form>
-          </aside>
-          <aside class="widget">
             <h3>Contact</h3>
             <p><a href="http://www.cs.unc.edu/~gb/">Gary Bishop</a>
              <a href="mailto:gb@cs.unc.edu">gb@cs.unc.edu</a><br/>
